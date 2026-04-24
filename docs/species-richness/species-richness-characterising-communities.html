@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Characterising communities – Practical Ecology book</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../species-richness/species-richness-commonness-and-rarity.html" rel="next">
+<link href="../species-richness/species-richness-overview.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../species-richness/species-richness-overview.html">Species Richness</a></li><li class="breadcrumb-item"><a href="../species-richness/species-richness-characterising-communities.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Characterising communities</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Practical Ecology book</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../organisms-that-dont-move/organisms-that-dont-move-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 1: Organisms that do not move</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-the-poisson-distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Poisson Distribution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-qualitative-and-quantitaive-sampling-approaches.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Qualitative and quantitative approaches to sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-the-concept-of-the-individual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The concept of the individual</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-poisson-r-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The R code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-workshop-ver-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The workshop: <em>Plantago</em> and LEGO</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../organisms-that-move/organisms-that-move-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organisms that move</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-sampling-animal-populations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sampling animal populations: the Lincoln-Petersen index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-limitations-lincoln-petersen-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Building on limitations of the Lincoln-Petersen index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-methods-for-sampling-animal-populations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Methods for sampling animal populations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../species-richness/species-richness-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Species Richness</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-characterising-communities.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Characterising communities</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-commonness-and-rarity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Commonness and rarity matters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-measuring-species-richness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Measuring species richness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-case-study-breeding-birds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Case study: breeding bird censuses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Species richness: A summary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../diversity/diversity-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diversity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-patterns-of-abundance-and-evenness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Patterns of species abundance and evenness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-patterns-species-richness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Patterns of species richness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-ecological-diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ecological diversity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practicals/practical-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practicals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practicals/plantago-practical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><em>Plantago</em> distributions practical</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practicals/pitfall-practical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Ground-Dwelling Insects and Small Animals</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#questions-we-can-answer-by-looking-at-communities-of-populations" id="toc-questions-we-can-answer-by-looking-at-communities-of-populations" class="nav-link active" data-scroll-target="#questions-we-can-answer-by-looking-at-communities-of-populations"><span class="header-section-number">9.1</span> Questions we can answer by looking at communities of populations</a></li>
+  <li><a href="#scales-of-communities-and-environments" id="toc-scales-of-communities-and-environments" class="nav-link" data-scroll-target="#scales-of-communities-and-environments"><span class="header-section-number">9.2</span> Scales of communities and environments</a></li>
+  <li><a href="#what-is-a-species" id="toc-what-is-a-species" class="nav-link" data-scroll-target="#what-is-a-species"><span class="header-section-number">9.3</span> What is a species?</a></li>
+  <li><a href="#what-does-species-richness-tell-us-about-a-community" id="toc-what-does-species-richness-tell-us-about-a-community" class="nav-link" data-scroll-target="#what-does-species-richness-tell-us-about-a-community"><span class="header-section-number">9.4</span> What does species richness tell us about a community?</a></li>
+  <li><a href="#what-is-true-species-richness" id="toc-what-is-true-species-richness" class="nav-link" data-scroll-target="#what-is-true-species-richness"><span class="header-section-number">9.5</span> What is true species richness?</a></li>
+  <li><a href="#case-study-yasuni-rainforest-ecuadorian-amazon" id="toc-case-study-yasuni-rainforest-ecuadorian-amazon" class="nav-link" data-scroll-target="#case-study-yasuni-rainforest-ecuadorian-amazon"><span class="header-section-number">9.6</span> Case study: Yasuni rainforest, Ecuadorian Amazon</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../species-richness/species-richness-overview.html">Species Richness</a></li><li class="breadcrumb-item"><a href="../species-richness/species-richness-characterising-communities.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Characterising communities</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-characterising-communities" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Characterising communities</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="questions-we-can-answer-by-looking-at-communities-of-populations" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="questions-we-can-answer-by-looking-at-communities-of-populations"><span class="header-section-number">9.1</span> Questions we can answer by looking at communities of populations</h2>
+<p>When we look at a community of organisms through a scientific lens, we may have a number of different questions that we want to answer. Generally speaking, these are the what, the where, the who, the how, and the why. The kind of questions we may ask include: - How are groupings of species distributed in nature? (the <strong>what</strong> - what is going on?) - How are these groupings affected by their abiotic environment? (the <strong>where</strong>, but also potentially the why) - How are these groupings affected by interactions among species? (the <strong>who</strong> - who is interacting?)</p>
+<p>This all sounds simple: go somewhere, count the species present! But there are a number of considerations we need to take into account when designing an experiment to really understand what is present, and whether a species is really absent or if we just haven’t found it yet.</p>
+</section>
+<section id="scales-of-communities-and-environments" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="scales-of-communities-and-environments"><span class="header-section-number">9.2</span> Scales of communities and environments</h2>
+<p>The scale (in time and space) that we use to ask questions about communities can vary across a wide range of scales (<a href="#fig-scales-communities" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>). If we are interested, for example, in the limitations of where vegetation spreads, we might look at a very large scale, considering whole biomes. This might lead us to conclude that climate (an abiotic factor) is broadly limiting the spread of various species of trees and plants. In equatorial regions, we’d see tropical forests, while in the extreme north we might see boreal forest or tundra, all of which are characterised by different vegetation types.</p>
+<p>However, we can also consider communities at smaller scales. For example, we might be interested in different mountainous regions, and the environmental and ecological drivers behind different plant and animal communities in these regions. We could go even smaller, and think about the pond in your back garden, or all the way down to the gut microbiome. All of these different scales of environment may have different whats, wheres, whos, hows, or whys driving the community composition.</p>
+<div id="fig-scales-communities" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Diagram showing scales of exploration from the whole world (a map showing different biomes at a global scale) through individual biomes to regions and even into the microbiome of gut flora. The scale of investigation depends on the questions being asked.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scales-communities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/scales-of-communities.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;9.1: Scales of different communities and environments."><img src="data-image/scales-of-communities.png" class="img-fluid figure-img" alt="Diagram showing scales of exploration from the whole world (a map showing different biomes at a global scale) through individual biomes to regions and even into the microbiome of gut flora. The scale of investigation depends on the questions being asked."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scales-communities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Scales of different communities and environments.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="what-is-a-species" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="what-is-a-species"><span class="header-section-number">9.3</span> What is a species?</h2>
+<p>Species richness is considered to be the number of species in a given taxon in the community. But how do you define a species? We generally use the biological species concept, but any of these potential approaches may be used: - Biological species - Phylogenetic species - Cohesion concept - Species discrimination - Morphotypes/morphospecies</p>
+<p>The phylogenetic species concept is where a species is the smallest group of populations that can be distinguished by a unique set of genetic traits (<a href="#fig-phylogenetic-tree" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>, with five species A-E).</p>
+<p>The cohesion concept says that a species is a series of populations with genetic or demographic cohesion, rather than a biological species (<a href="#fig-phylogenetic-tree" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>, two species, with small-eared and big-eared groups).</p>
+<p>We may also have the challenge of discriminating between species that are very similar looking species, or ’cryptic species.’It is not always easy to tell the difference between them without DNA testing (<a href="#fig-phylogenetic-tree" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>, differences between species C, D and E).</p>
+<div id="fig-phylogenetic-tree" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-phylogenetic-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/phylogenetic-tree-example.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;9.2: A phylogenetic tree for fictional small rodent-like creatures with different ears and tails."><img src="data-image/phylogenetic-tree-example.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phylogenetic-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.2: A phylogenetic tree for fictional small rodent-like creatures with different ears and tails.
+</figcaption>
+</figure>
+</div>
+<p>This means that, in your community, species richness can go up if you split up previously lumped species or distinguished cryptic species, or it can go down where a single species is identified as previously having two scientific names attached to it. The approach that you choose to take to identify the species in your community must be carefully considered as part of your experimental approach when surveying species richness.</p>
+</section>
+<section id="what-does-species-richness-tell-us-about-a-community" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="what-does-species-richness-tell-us-about-a-community"><span class="header-section-number">9.4</span> What does species richness tell us about a community?</h2>
+<p>“What is present here?” is one of the first questions an ecologist might ask about a community. At its heart, this is a question about species richness: if we sample this location, and we count or collect individuals of our taxa of interest, what species will those individuals belong to?</p>
+<p>Of course, a community is made up of a variety of species, but it’s unlikely that each species is going to be represented by the same number of individuals. Some species are more common, with a large number of individuals, and some are rare, with fewer individuals. This might be because common species have out-competed the rarer species, or perhaps because the rarer species have found it harder to survive in this environment, or have less appropriate habitat. Ultimately, we want to describe the relationship between the number of species, and the number of individuals in those species, with respect to the environment and the biotic interactions that occur, and have occurred, in that location.</p>
+<p>As researchers, the question then becomes - what do we measure, in order to look at the number of species, and these patterns of rarity and commonness across the set of species that makes up the community? We could measure the number of individuals in a species, but we could also measure the total biomass within a community that can be attributed to each species. Which of these two approaches (or proxies for each one) that you use will depend on what it is that you are investigating.</p>
+</section>
+<section id="what-is-true-species-richness" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="what-is-true-species-richness"><span class="header-section-number">9.5</span> What is true species richness?</h2>
+<p>When assemblages consist of relatively well-known flora and fauna, and there are relatively few species, it’s possible to record them all and have a good idea that you’ve measured all of them. This might be the case if surveying a temperate zone, and/or a habitat with clear boundaries, such as a lake or a small island, allowing you to document it well. There may also be historical records that you can use. Often this documentation is of assemblages of invertebrates or higher order plants: things that are easy to define (<a href="#fig-easily-defined-things" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>).</p>
+<div id="fig-easily-defined-things" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-easily-defined-things-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/easy-to-identify-things.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;9.3: Scenarios in which you may be able to census the species present and record ‘true’ species richness (left) and scenarios in which it is unlikely that you can find all the species present, in which case you will only be able to record ‘observed’ species richness."><img src="data-image/easy-to-identify-things.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-easily-defined-things-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.3: Scenarios in which you may be able to census the species present and record ‘true’ species richness (left) and scenarios in which it is unlikely that you can find all the species present, in which case you will only be able to record ‘observed’ species richness.
+</figcaption>
+</figure>
+</div>
+<p>You are probably not observing true species richness if you’re working in a tropical zone, because it is incredibly diverse. Similarly, areas allowing a lot of movement in and out of the habitat, such as a deep sea area, mean that you may not know if you’ve recorded all species present. These locations tend to be poorly documented, and that might be because of limited funding to look into these habitats. Often they are highly diverse, and in these areas true species diversity is never going to be recorded. We have to make do with an estimate. It could also be that your study species, such as invertebrates, is incredibly diverse with a lot of cryptic species. This means that, for any measure of species richness, we need to consider how likely it is that we’re going to find all of the species present, even with a good sampling effort.</p>
+</section>
+<section id="case-study-yasuni-rainforest-ecuadorian-amazon" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="case-study-yasuni-rainforest-ecuadorian-amazon"><span class="header-section-number">9.6</span> Case study: Yasuni rainforest, Ecuadorian Amazon</h2>
+<p>One approach to recording species richness is to measure the number of species found in a given area. In the Ecuadorian rainforest of Yasuni in the Amazon, an experiment was undertaken to assess species richness. Initially, researchers used a one hectare (100m x 100m) search area, counting the trees within this area with a measurement of the diameter at breast height (DBH - i.e.&nbsp;about 4 feet above the ground) of more than 10 cm. These are considered established trees, as opposed to saplings or seedlings. The study found seven hundred individual trees, representing 253 species – clearly a diverse area. The researchers then wanted to examine whether increasing the search effort increased the number of species observed.</p>
+<p>When the search area was increased to 25 times the size, they found over 17 thousand individual trees, but only four times as many species (<a href="#tbl-amazon-rainforest-species" class="quarto-xref">Table&nbsp;<span>9.1</span></a>). The species count did not increase proportionally to the increased sampling effort, meaning that we can’t simply assume in this region that species richness is a function of sampling area. This also makes it hard to compare different regions, as we can’t assume a linear relationship between the sampled area and the species richness.</p>
+<div class="cell">
+<div id="tbl-amazon-rainforest-species" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-amazon-rainforest-species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.1: Individual and species counts from searching different areas and tree sizes in the Ecuadorian Amazon rainforest
+</figcaption>
+<div aria-describedby="tbl-amazon-rainforest-species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Search area</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Search critera</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Number of trees</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Number of species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1 ha</td>
+<td style="text-align: left;">DBH &gt; 10 cm</td>
+<td style="text-align: left;">702</td>
+<td style="text-align: left;">253</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">25 ha</td>
+<td style="text-align: left;">DBH &gt; 10 cm</td>
+<td style="text-align: left;">17 550</td>
+<td style="text-align: left;">820</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">25 ha</td>
+<td style="text-align: left;">DBH &gt; 1cm</td>
+<td style="text-align: left;">152 350</td>
+<td style="text-align: left;">1140</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The researchers also asked what would happen if we increased the available population to sample not just adult trees, but all the way down to the smallest saplings? Excluding seedlings that have not reached 4 feet tall, but counting all plants that have reached greater than four feet, regardless of their DBH, the number of trees present that reach this criteria increased substantially, from over 17 thousand to over 152 thousand. There was also an increase in the number of species counted, but again disproportionate to the increased sampling effort.</p>
+<p>The demographics of the population, and the way that sampling is carried out, will affect records of observed species richness. We need a way to calculate ‘true’ species richness if we want to be able to compare studies that use different sampling regimes, or be resilient to changes in sampling effort within a single study. This calculation of how many species there really are in a given area should be independent of effort, to be comparable between sites.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../species-richness/species-richness-overview.html" class="pagination-link" aria-label="Species Richness">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Species Richness</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../species-richness/species-richness-commonness-and-rarity.html" class="pagination-link" aria-label="Commonness and rarity matters">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Commonness and rarity matters</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
