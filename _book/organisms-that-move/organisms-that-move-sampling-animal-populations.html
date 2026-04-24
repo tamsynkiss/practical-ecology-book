@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Sampling animal populations: the Lincoln-Petersen index – Practical Ecology book</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../organisms-that-move/organisms-that-move-limitations-lincoln-petersen-index.html" rel="next">
+<link href="../organisms-that-move/organisms-that-move-overview.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../organisms-that-move/organisms-that-move-overview.html">Organisms that move</a></li><li class="breadcrumb-item"><a href="../organisms-that-move/organisms-that-move-sampling-animal-populations.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sampling animal populations: the Lincoln-Petersen index</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Practical Ecology book</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../organisms-that-dont-move/organisms-that-dont-move-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 1: Organisms that do not move</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-the-poisson-distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Poisson Distribution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-qualitative-and-quantitaive-sampling-approaches.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Qualitative and quantitative approaches to sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-the-concept-of-the-individual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The concept of the individual</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-poisson-r-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The R code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-workshop-ver-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The workshop: <em>Plantago</em> and LEGO</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../organisms-that-move/organisms-that-move-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organisms that move</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-sampling-animal-populations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sampling animal populations: the Lincoln-Petersen index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-limitations-lincoln-petersen-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Building on limitations of the Lincoln-Petersen index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-methods-for-sampling-animal-populations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Methods for sampling animal populations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../species-richness/species-richness-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Species Richness</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-characterising-communities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Characterising communities</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-commonness-and-rarity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Commonness and rarity matters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-measuring-species-richness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Measuring species richness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-case-study-breeding-birds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Case study: breeding bird censuses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Species richness: A summary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../diversity/diversity-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diversity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-patterns-of-abundance-and-evenness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Patterns of species abundance and evenness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-patterns-species-richness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Patterns of species richness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-ecological-diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ecological diversity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practicals/practical-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practicals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practicals/plantago-practical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><em>Plantago</em> distributions practical</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practicals/pitfall-practical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Ground-Dwelling Insects and Small Animals</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-count-animal-populations" id="toc-why-count-animal-populations" class="nav-link active" data-scroll-target="#why-count-animal-populations"><span class="header-section-number">6.1</span> Why count animal populations?</a>
+  <ul class="collapse">
+  <li><a href="#conservation" id="toc-conservation" class="nav-link" data-scroll-target="#conservation"><span class="header-section-number">6.1.1</span> Conservation</a></li>
+  <li><a href="#pest-control" id="toc-pest-control" class="nav-link" data-scroll-target="#pest-control"><span class="header-section-number">6.1.2</span> Pest control</a></li>
+  <li><a href="#prediction" id="toc-prediction" class="nav-link" data-scroll-target="#prediction"><span class="header-section-number">6.1.3</span> Prediction</a></li>
+  </ul></li>
+  <li><a href="#how-do-we-go-about-estimating-population-size" id="toc-how-do-we-go-about-estimating-population-size" class="nav-link" data-scroll-target="#how-do-we-go-about-estimating-population-size"><span class="header-section-number">6.2</span> How do we go about estimating population size?</a></li>
+  <li><a href="#the-lincoln-petersen-index" id="toc-the-lincoln-petersen-index" class="nav-link" data-scroll-target="#the-lincoln-petersen-index"><span class="header-section-number">6.3</span> The Lincoln-Petersen Index</a></li>
+  <li><a href="#assumptions-of-the-lincoln-petersen-index" id="toc-assumptions-of-the-lincoln-petersen-index" class="nav-link" data-scroll-target="#assumptions-of-the-lincoln-petersen-index"><span class="header-section-number">6.4</span> Assumptions of the Lincoln-Petersen index</a>
+  <ul class="collapse">
+  <li><a href="#marks-are-permanent-and-recorded-correctly" id="toc-marks-are-permanent-and-recorded-correctly" class="nav-link" data-scroll-target="#marks-are-permanent-and-recorded-correctly"><span class="header-section-number">6.4.1</span> Marks are permanent and recorded correctly</a></li>
+  <li><a href="#marking-has-no-effect-on-likelihood-of-recapture" id="toc-marking-has-no-effect-on-likelihood-of-recapture" class="nav-link" data-scroll-target="#marking-has-no-effect-on-likelihood-of-recapture"><span class="header-section-number">6.4.2</span> Marking has no effect on likelihood of recapture</a></li>
+  <li><a href="#marking-has-no-effect-on-death-or-emigration" id="toc-marking-has-no-effect-on-death-or-emigration" class="nav-link" data-scroll-target="#marking-has-no-effect-on-death-or-emigration"><span class="header-section-number">6.4.3</span> Marking has no effect on death or emigration</a></li>
+  <li><a href="#all-individuals-have-an-inherently-equal-chance-of-being-caught-or-of-dying" id="toc-all-individuals-have-an-inherently-equal-chance-of-being-caught-or-of-dying" class="nav-link" data-scroll-target="#all-individuals-have-an-inherently-equal-chance-of-being-caught-or-of-dying"><span class="header-section-number">6.4.4</span> All individuals have an inherently equal chance of being caught, or of dying</a></li>
+  </ul></li>
+  <li><a href="#populations-are-dynamic" id="toc-populations-are-dynamic" class="nav-link" data-scroll-target="#populations-are-dynamic"><span class="header-section-number">6.5</span> Populations are dynamic</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../organisms-that-move/organisms-that-move-overview.html">Organisms that move</a></li><li class="breadcrumb-item"><a href="../organisms-that-move/organisms-that-move-sampling-animal-populations.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sampling animal populations: the Lincoln-Petersen index</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-lincoln-petersen" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sampling animal populations: the Lincoln-Petersen index</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="why-count-animal-populations" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="why-count-animal-populations"><span class="header-section-number">6.1</span> Why count animal populations?</h2>
+<p>Before we consider the theory and practicalities of sampling animals, we’ll first look at why we want to count animal populations (<a href="#fig-animals-we-might-count" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>)</p>
+<section id="conservation" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="conservation"><span class="header-section-number">6.1.1</span> Conservation</h3>
+<ul>
+<li>Size and location of breeding populations</li>
+<li>Rates and routes of migration</li>
+</ul>
+</section>
+<section id="pest-control" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="pest-control"><span class="header-section-number">6.1.2</span> Pest control</h3>
+<ul>
+<li>Monitoring insect pest outbreaks</li>
+<li>Culling programmes</li>
+</ul>
+</section>
+<section id="prediction" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="prediction"><span class="header-section-number">6.1.3</span> Prediction</h3>
+<ul>
+<li>Response to climate change</li>
+<li>Disease outbreaks</li>
+</ul>
+<div id="fig-animals-we-might-count" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-animals-we-might-count-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="data-image/monarch-butterfly.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="monarch-butterfly"><img src="data-image/monarch-butterfly.png" class="img-fluid figure-img" alt="A monarch butterfly"></a></p>
+<figcaption>monarch-butterfly</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><a href="data-image/insect-outbreak.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;6.1: Three examples of animals that might need to be counted, for conservation (e.g.&nbsp;the Monarch butterfly, left); for pest control (e.g.&nbsp;an insect outbreak, centre); and to predict outbreaks (e.g.&nbsp;Tb in badgers, right)."><img src="data-image/insect-outbreak.png" class="img-fluid figure-img" alt="An insect outbreak over a crop field"></a> <a href="data-image/badger-badger-badger.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;6.1: Three examples of animals that might need to be counted, for conservation (e.g.&nbsp;the Monarch butterfly, left); for pest control (e.g.&nbsp;an insect outbreak, centre); and to predict outbreaks (e.g.&nbsp;Tb in badgers, right)."><img src="data-image/badger-badger-badger.png" class="img-fluid figure-img" alt="A European badger"></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-animals-we-might-count-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Three examples of animals that might need to be counted, for conservation (e.g.&nbsp;the Monarch butterfly, left); for pest control (e.g.&nbsp;an insect outbreak, centre); and to predict outbreaks (e.g.&nbsp;Tb in badgers, right).
+</figcaption>
+</figure>
+</div>
+<p>There are many areas of ecology and management that rely on estimates of population size. This might be in a conservation context, wanting to understand how large your breeding population is and the range that it covers. It could also be to understand rates of and routes used for migration, from monarch butterflies to humpback whales.</p>
+<p>Understanding population size and spread is important for monitoring pest control in agricultural and forestry contexts, for example to be able to predict or minimise the impacts of locust swarms or armyworm outbreaks in Africa. Insects are not the only pests we might want to count: we might be looking to reduce numbers of feral cats and rats in the antipodes in Australia or New Zealand, or wanting to control numbers of escaped mink in East Anglia.</p>
+<p>When looking at controlling populations, it is important that we understand the population biology of the organism, for example its reproductive strategies, so that we know how to target the organism and control it effectively.</p>
+<p>We might also want to look at change through time, for example how populations respond to climate change, whether numbers decline or home ranges shift. This might be looking at scenarios from the changing elevation of dung beetles or butterflies, to the feeding range of polar bears. Similarly, we might want to count animals to monitor disease outbreaks and predict future spread, and we’ve seen this over recent decades with bird flu and swine flu, as well as the perennial debate about culling badger populations (in the UK) or brushtail possums (in NZ) and its efficacy in controlling bovine tuberculosis in cattle.</p>
+</section>
+</section>
+<section id="how-do-we-go-about-estimating-population-size" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="how-do-we-go-about-estimating-population-size"><span class="header-section-number">6.2</span> How do we go about estimating population size?</h2>
+<p>We can use counts to monitor population density associated with specific places in space and time.</p>
+<p>When doing this we need to know which individual we are counting, especially as we can’t always see all of the animal population by virtue of the fact that they are moving. If we can’t see animals themselves, we can use a proxy (<a href="#fig-proxy" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>). This involves monitoring calls, tracks, sightings or other evidence like faecal samples, usually along transects or in fixed monitoring locations as with our plant monitoring techniques.</p>
+<p>We might go to these locations or walk the transects on multiple occasions to record evidence. We might also use a continuous monitoring strategy to get an idea of how many individuals are using that location, for example using camera traps to photograph tigers and then identifying them by their coat patterns.</p>
+<div id="fig-proxy" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-proxy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="data-image/yellowhammer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="yellowhammer"><img src="data-image/yellowhammer.png" class="img-fluid figure-img" alt="A yellowhammer singing on a branch"></a></p>
+<figcaption>yellowhammer</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="data-image/animal-footprint.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="insect-outbreak"><img src="data-image/animal-footprint.png" class="img-fluid figure-img" alt="A close up of an animal foot print in the sand"></a></p>
+<figcaption>insect-outbreak</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="data-image/faecal-sample.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="badger"><img src="data-image/faecal-sample.png" class="img-fluid figure-img" alt="A ruler indicating the size of a faecal sample on the ground."></a></p>
+<figcaption>badger</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proxy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.2: From left to right: A yellowhammer singing on a branch; A close up of an animal foot print in the sand; A ruler indicating the size of a faecal sample on the ground.
+</figcaption>
+</figure>
+</div>
+<p>The sampling efficiency of this type of methodology is difficult to estimate. When designing our sampling regimes, we need to consider how the biology of the species affects the scale of our sampling effort. As we discussed last week, getting the spatial scale right with respect to the organism we are measuring is key - just as we wouldn’t use a metre square quadrat to record rainforest trees, or a hectare to count daisies, we need to consider the home range size and activity of the animal so that we don’t look for wolves for just two days in a small patch of land when they might be roaming across the landscape and only visit that part of their territory rarely.</p>
+<p>When designing an experiment, think about what properties of the animal population could impact on the probability of the animal being sampled, to help you decide whether transects or plots are most appropriate for recording presence or abundance of the animal, and how the timing of your data collection should work. Factors to consider include:</p>
+<ul>
+<li>The extent to which the animal roams, on daily, seasonal and annual timescales.</li>
+<li>When the animal is active, e.g.&nbsp;in the day and night, or across the seasons</li>
+<li>What behavioural changes might occur during the breeding season, for example if birds are incubating eggs, or if there is any kind of mating display.</li>
+</ul>
+<p>If you go out into the field to sample an animal at fixed locations but don’t have any information about territoriality in the species that you’re sampling, then where you place your sampling plots may be extremely biased and you may not be getting a good estimate of population size. This would impact on the probability of the animal being sampled. Similarly, if you’re on a track that the animals use frequently then you may be resampling the same individual all the time, so there are two components to this challenge of sampling animals. First of all, we need to determine whether the animal is there at all, and if so, whether you are sampling different individual animals each time. Both of these are much more difficult to account for than when we are studying sessile plants and animals that don’t move around.</p>
+</section>
+<section id="the-lincoln-petersen-index" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="the-lincoln-petersen-index"><span class="header-section-number">6.3</span> The Lincoln-Petersen Index</h2>
+<p>There are multiple indices for estimating population size. In this chapter, we are focusing on the Lincoln-Petersen index.</p>
+<p>You may come across a number of names for this index, such as the Petersen index, the Lincoln index, the Petersen-Lincoln index or the Lincoln-Petersen index – this is because this model was derived independently by both authors in different contexts. Petersen studied fish, specifically European plaice in the 1890’s and Lincoln studied banding returns in waterfowl in the 1930s. In these notes we may use L-P index for short but in your own scientific writing (especially for assessments) please write it out in full.</p>
+<p>The L-P index is based on a simple and intuitive model (<a href="#fig-capture-release" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>):</p>
+<ol type="1">
+<li>First we capture <em>r</em> individuals.</li>
+<li>We mark all of them and then let them go.</li>
+<li>After an appropriate period of time we have a second capture round, collecting <em>n</em> individuals.</li>
+<li>We count all <em>m</em> individuals in that capture that already have a mark.</li>
+</ol>
+<div id="fig-capture-release" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Illustration of insects being marked for a Lincoln Petersen estimate of population size. See caption for details.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-capture-release-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/mark-capture-release.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;6.3: On the first visit, r = 4 individuals are captured and marked, from an unknown population size N. On the second visit a further sample of size n = 6 is captured, of which m = 2 individuals are already marked."><img src="data-image/mark-capture-release.png" class="img-fluid figure-img" alt="Illustration of insects being marked for a Lincoln Petersen estimate of population size. See caption for details."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-capture-release-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.3: On the first visit, <em>r</em> = 4 individuals are captured and marked, from an unknown population size N. On the second visit a further sample of size <em>n</em> = 6 is captured, of which <em>m</em> = 2 individuals are already marked.
+</figcaption>
+</figure>
+</div>
+<p>The key assumption of the L-P index model is that the *proportion of marked individuals remains constant** between the first and the second capture, and so we can estimate population size from the number of marked individuals that are recaptured as:</p>
+<p><span class="math display">\[
+{m \over n} = {r \over \hat{N}}
+\]</span> or <span class="math display">\[
+\hat{N} = {rn \over m}
+\]</span></p>
+<p>Where <span class="math inline">\(\hat{N}\)</span> means an estimate of true population size <em>N</em>.</p>
+<p>That is, the proportion of marks in the second capture is equal to the proportion of the whole population that was marked in the first capture.</p>
+<p>There is a modification to this equation for small sample sizes, called the Bailey modification:</p>
+<p><span class="math display">\[
+\hat{N} = {r(n+1) \over (m+1)}
+\]</span></p>
+<p>This can be used in cases where the recapture size is very low, e.g.&nbsp;less than 10. You might not use the Bailey modification, but it is shown here to make you aware that there are adjustments that you can use to make your estimates of population size more accurate.</p>
+</section>
+<section id="assumptions-of-the-lincoln-petersen-index" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="assumptions-of-the-lincoln-petersen-index"><span class="header-section-number">6.4</span> Assumptions of the Lincoln-Petersen index</h2>
+<p>The Lincoln Petersen model, whilst being a relatively simple model in form, has a lot of assumptions.</p>
+<section id="marks-are-permanent-and-recorded-correctly" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="marks-are-permanent-and-recorded-correctly"><span class="header-section-number">6.4.1</span> Marks are permanent and recorded correctly</h3>
+<p>The first is that the marks are permanent and correctly recorded: collars remain on necks and rings on birds don’t fall off. For correct recording this might mean you know that the yellow coloured rings you fitted on your bird population at the start of a study haven’t faded to white in the last 5 years that you’ve been monitoring the bird.</p>
+</section>
+<section id="marking-has-no-effect-on-likelihood-of-recapture" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="marking-has-no-effect-on-likelihood-of-recapture"><span class="header-section-number">6.4.2</span> Marking has no effect on likelihood of recapture</h3>
+<p>The index assumes that marking has no effect on the likelihood of recapture. This is a very interesting and important assumption as there are certain behaviours that can go along with being marked in animal populations. Unlike cutting a leaf off a plant which won’t necessarily change its behaviour, and won’t change its population size, certain types of marks are known to have an effect on the behaviour of an animal.</p>
+<p>You can have behaviours that are loosely called trap-happy and trap-shy behaviour. For example, if you put food traps out in a field for rodents, say, if you load those up with a good food source then the animals will learn that it’s there and you’re more likely to capture an animal that has been captured before because it knows the trap is there.</p>
+<p>Similarly, the experience of being trapped may be sufficiently traumatic that an animal knows to avoid that area in future, so there are elements to the act of trapping animals that may change the likelihood of them being trapped again in the future which will then have an effect on your sample size.</p>
+</section>
+<section id="marking-has-no-effect-on-death-or-emigration" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="marking-has-no-effect-on-death-or-emigration"><span class="header-section-number">6.4.3</span> Marking has no effect on death or emigration</h3>
+<p>We also assume that marking has no effect on mortality rates or emigration. If the collar that you put on an animal is so heavy that it loses mobility and is more likely to be predated then these marked individuals are disproportionately lost from the population. So, this impacts on the numbers of marked individuals you find in the second capture and so impacts the proportion of marks in the initial and final sample.</p>
+<p>There is good evidence that flipper banding in penguins has a significant effect on fitness and mortality. This has been a commonly used technique to tag penguins in Antarctica but we now know that it impacts on banded individuals. Because of this we are now working on phasing these bands out because it has a marked effect on the population and using bands to get an estimate of population size is clearly not viable in this case. Also, we need to be sure that the mark doesn’t impact on emigrating, so marked and unmarked individuals are equally transient.</p>
+</section>
+<section id="all-individuals-have-an-inherently-equal-chance-of-being-caught-or-of-dying" class="level3" data-number="6.4.4">
+<h3 data-number="6.4.4" class="anchored" data-anchor-id="all-individuals-have-an-inherently-equal-chance-of-being-caught-or-of-dying"><span class="header-section-number">6.4.4</span> All individuals have an inherently equal chance of being caught, or of dying</h3>
+<p>These assumptions all combine with the effect that all individuals have an equal chance of being caught and all have an equal chance of survival from one capture to the next, so the mark has no effect on this.</p>
+<p>Anything that happens in the population that means that marked organisms are more or less likely to be captured will affect your estimates of population size.</p>
+</section>
+</section>
+<section id="populations-are-dynamic" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="populations-are-dynamic"><span class="header-section-number">6.5</span> Populations are dynamic</h2>
+<p>Demographic properties of populations are another thing we have to consider in taking population estimates.</p>
+<p>One of the key factors with this model and its assumptions is that we’re looking at a closed population.</p>
+<p>We said that an unequal chance of survival due to marking can influence population estimates. The other thing that can affect the proportion of marks in the model is that there is recruitment into the population, either through immigration into it or through birth. Immigrants into the population and new-borns are inherently unmarked and so this depresses the proportion of marked individuals in the population so we can think about what this would then do to our estimates of population size.</p>
+<p>This is a significant limitation of the model because it restricts when you can undertake these mark-recapture sampling efforts based on the demographics of the species in question. So, you do again have to understand the biology of the organism that you are sampling.</p>
+<p>Most derivations of the L-P model have been developed to model population change between mark and recapture events. With the simplest model, Lincoln-Petersen index, there is no demographic change between the first and the second event. Because of this we need to think about what is an appropriate measure of time between the first and the second sampling event for each population. This is akin to considering the appropriateness of quadrat size when sampling plants and whether you’re looking at daisies or palm trees. In this case we want to get the sampling time frame right whether we are sampling snails or deer.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../organisms-that-move/organisms-that-move-overview.html" class="pagination-link" aria-label="Organisms that move">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Organisms that move</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../organisms-that-move/organisms-that-move-limitations-lincoln-petersen-index.html" class="pagination-link" aria-label="Building on limitations of the Lincoln-Petersen index">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Building on limitations of the Lincoln-Petersen index</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

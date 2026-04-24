@@ -1,0 +1,7 @@
+---
+title: "Organisms that move"
+---
+
+The theme for this week’s Practical Ecology is the sampling of mobile organisms. We will build on the plant sampling work from last week to discuss how we might sample animals in space and time, to estimate population counts for more motile organisms.
+
+In this chapter, we will start by considering why we might want to count animal populations, and explore a simple capture-mark-recapture method and index for estimating population size, the Lincoln-Petersen index (@sec-lincoln-petersen). We’ll think about the limitations of the Lincoln-Petersen index and explore some extensions of that model to cope better with reality (@sec-limitations-lincoln-petersen). We’ll finish with some specific methods for collecting data, and case studies where these have been used, to estimate population sizes using capture-remark-recapture methods (@sec-methods-sampling-animal-populations). In the workshop you will use paper aeroplanes to explore how sampling effort and model assumptions affect your estimates of population size.

@@ -1,0 +1,74 @@
+project:
+  type: book
+  
+execute:
+  echo: true
+  warning: false
+  include: true
+  freeze: false
+
+engine: knitr
+
+# If you really need a site-url (for RSS, sitemap, etc), move it here:
+#website:
+  #site-url:
+
+book:
+  title: "Practical Ecology book"
+  author: "Tamsyn Kiss"
+  date: last-modified
+  date-format: D MMMM, YYYY
+  search: true
+  
+  
+  chapters:
+    - index.qmd
+    - intro.qmd 
+      
+    - part: organisms-that-dont-move/organisms-that-dont-move-overview.qmd
+      chapters:
+        - organisms-that-dont-move/organisms-that-dont-move-the-poisson-distribution.qmd
+        - organisms-that-dont-move/organisms-that-dont-move-qualitative-and-quantitaive-sampling-approaches.qmd
+        - organisms-that-dont-move/organisms-that-dont-move-the-concept-of-the-individual.qmd
+        - organisms-that-dont-move/organisms-that-dont-move-poisson-r-code.qmd
+        - organisms-that-dont-move/organisms-that-dont-move-workshop-ver-2.qmd
+    - part: organisms-that-move/organisms-that-move-overview.qmd
+      chapters:
+        - organisms-that-move/organisms-that-move-sampling-animal-populations.qmd
+        - organisms-that-move/organisms-that-move-limitations-lincoln-petersen-index.qmd
+        - organisms-that-move/organisms-that-move-methods-for-sampling-animal-populations.qmd
+    - part: species-richness/species-richness-overview.qmd
+      chapters: 
+        - species-richness/species-richness-characterising-communities.qmd
+        - species-richness/species-richness-commonness-and-rarity.qmd
+        - species-richness/species-richness-measuring-species-richness.qmd
+        - species-richness/species-richness-case-study-breeding-birds.qmd
+        - species-richness/species-richness-summary.qmd
+    - part: diversity/diversity-overview.qmd
+      chapters:
+        - diversity/diversity-patterns-of-abundance-and-evenness.qmd
+        - diversity/diversity-patterns-species-richness.qmd
+        - diversity/diversity-ecological-diversity.qmd
+    - part: practicals/practical-overview.qmd
+      chapters: 
+        - practicals/plantago-practical.qmd
+        - practicals/pitfall-practical.qmd
+  
+
+bibliography:
+  - references.bib
+
+format:
+  html:
+    theme: cosmo
+    link-external-newwindow: true
+    lightbox:
+      match: auto
+      loop: false
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
+  
+

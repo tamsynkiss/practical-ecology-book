@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>14&nbsp; Patterns of species abundance and evenness – Practical Ecology book</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../diversity/diversity-patterns-species-richness.html" rel="next">
+<link href="../diversity/diversity-overview.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../diversity/diversity-overview.html">Diversity</a></li><li class="breadcrumb-item"><a href="../diversity/diversity-patterns-of-abundance-and-evenness.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Patterns of species abundance and evenness</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Practical Ecology book</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../organisms-that-dont-move/organisms-that-dont-move-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 1: Organisms that do not move</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-the-poisson-distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Poisson Distribution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-qualitative-and-quantitaive-sampling-approaches.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Qualitative and quantitative approaches to sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-the-concept-of-the-individual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The concept of the individual</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-poisson-r-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The R code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-workshop-ver-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The workshop: <em>Plantago</em> and LEGO</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../organisms-that-move/organisms-that-move-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organisms that move</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-sampling-animal-populations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sampling animal populations: the Lincoln-Petersen index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-limitations-lincoln-petersen-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Building on limitations of the Lincoln-Petersen index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-methods-for-sampling-animal-populations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Methods for sampling animal populations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../species-richness/species-richness-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Species Richness</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-characterising-communities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Characterising communities</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-commonness-and-rarity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Commonness and rarity matters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-measuring-species-richness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Measuring species richness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-case-study-breeding-birds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Case study: breeding bird censuses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Species richness: A summary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../diversity/diversity-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diversity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-patterns-of-abundance-and-evenness.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Patterns of species abundance and evenness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-patterns-species-richness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Patterns of species richness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-ecological-diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ecological diversity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practicals/practical-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practicals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practicals/plantago-practical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><em>Plantago</em> distributions practical</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practicals/pitfall-practical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Ground-Dwelling Insects and Small Animals</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#too-long-didnt-read-tldr" id="toc-too-long-didnt-read-tldr" class="nav-link active" data-scroll-target="#too-long-didnt-read-tldr"><span class="header-section-number">14.1</span> Too Long; Didn’t Read (TL;DR)</a></li>
+  <li><a href="#why-use-models" id="toc-why-use-models" class="nav-link" data-scroll-target="#why-use-models"><span class="header-section-number">14.2</span> Why use models?</a></li>
+  <li><a href="#species-abundance-models" id="toc-species-abundance-models" class="nav-link" data-scroll-target="#species-abundance-models"><span class="header-section-number">14.3</span> Species abundance models</a></li>
+  <li><a href="#statistical-models" id="toc-statistical-models" class="nav-link" data-scroll-target="#statistical-models"><span class="header-section-number">14.4</span> Statistical models</a>
+  <ul class="collapse">
+  <li><a href="#log-series" id="toc-log-series" class="nav-link" data-scroll-target="#log-series"><span class="header-section-number">14.4.1</span> Log series</a></li>
+  <li><a href="#case-study-log-series-in-indonesian-butterflies" id="toc-case-study-log-series-in-indonesian-butterflies" class="nav-link" data-scroll-target="#case-study-log-series-in-indonesian-butterflies"><span class="header-section-number">14.4.2</span> Case study: log series in Indonesian butterflies</a></li>
+  <li><a href="#log-normal" id="toc-log-normal" class="nav-link" data-scroll-target="#log-normal"><span class="header-section-number">14.4.3</span> Log normal</a></li>
+  </ul></li>
+  <li><a href="#biological-models" id="toc-biological-models" class="nav-link" data-scroll-target="#biological-models"><span class="header-section-number">14.5</span> Biological models</a>
+  <ul class="collapse">
+  <li><a href="#geometric-series" id="toc-geometric-series" class="nav-link" data-scroll-target="#geometric-series"><span class="header-section-number">14.5.1</span> Geometric series</a></li>
+  <li><a href="#case-study-geometric-series-in-the-park-grass-experiment" id="toc-case-study-geometric-series-in-the-park-grass-experiment" class="nav-link" data-scroll-target="#case-study-geometric-series-in-the-park-grass-experiment"><span class="header-section-number">14.5.2</span> Case study: geometric series in the Park Grass experiment</a></li>
+  <li><a href="#power-fraction" id="toc-power-fraction" class="nav-link" data-scroll-target="#power-fraction"><span class="header-section-number">14.5.3</span> Power fraction</a></li>
+  </ul></li>
+  <li><a href="#comparing-models" id="toc-comparing-models" class="nav-link" data-scroll-target="#comparing-models"><span class="header-section-number">14.6</span> Comparing models</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">14.7</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../diversity/diversity-overview.html">Diversity</a></li><li class="breadcrumb-item"><a href="../diversity/diversity-patterns-of-abundance-and-evenness.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Patterns of species abundance and evenness</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-abundance-and-evenness" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Patterns of species abundance and evenness</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="too-long-didnt-read-tldr" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="too-long-didnt-read-tldr"><span class="header-section-number">14.1</span> Too Long; Didn’t Read (TL;DR)</h2>
+<p>What’s the take home message for <a href="#sec-abundance-and-evenness" class="quarto-xref"><span>Chapter 14</span></a>? Rank abundance, or species abundance, tells us how individuals are distributed across species in a community. There are many mathematical models developed to describe the different shapes seen in the curve made by a rank abundance plot, where the number of individuals in each species are plotted from most common to rarest (x axis) on a log scale (y axis). We can fit models to observed data: here, we are asking whether the expected values produced by the model are a good match to the observed values, like we did with the Poisson distribution to assess whether <em>Plantago lanceolata</em> were randomly distributed in space in week 2. The best fitting species abundance model tells us that, whatever the assumptions sitting behind that model might be, this is a credible explanation for why the community looks the way it does. When we have multiple communities, we can compare the parameters of the best fitting models or different model types to better understand why the communities are similar or different.</p>
+</section>
+<section id="why-use-models" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="why-use-models"><span class="header-section-number">14.2</span> Why use models?</h2>
+<p>Within any community of interest (whether at the large scale or the microscopic), we want to describe the relationship between the number of species and the number of individuals in those species. This is the relative abundance of species that make up a community. Rank abundance models help us to understand both species richness, and the evenness of the distribution of those species.</p>
+<p>As ecologists, we need models to use as tools to produce realistic rank-abundance patterns. These models help us to describe and explain the processes that help to form or change a community. At a simple level, the shape of the line of the rank abundance plot is a descriptive model. For example, Bazzaz (1975) created rank abundance plots for a number of species growing in fields, where the number of years for which the fields had been left fallow varied from one to 40 years (<a href="#fig-plant-succession" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>). The plants are identified as herbs, shrubs and trees, and the index of abundance is relative cover, rather than biomass or abundance. Take a look back at Chapter 2 to reacquaint yourself with measures for plant abundance if you need to: counts, masses, and areas, are all acceptable for this type of plot.</p>
+<p>Bazzaz (1975) shows that in early succession, i.e.&nbsp;the fields left fallow for only a short period of time, rank-abundance can be described by a relatively straight line. There are few species in total, and they are mostly herbs; there is a high degree of dominance. As time progresses and succession continues, trees and shrubs begin to appear, and in the 25 to 40 year rank abundance plots you can see both a higher species richness, and a more even community structure, although some species are still considerably more abundant (or dominant) than others.</p>
+<div id="fig-plant-succession" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plant-succession-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/bazzaz.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;14.1: "><img src="data-image/bazzaz.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-plant-succession-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1
+</figcaption>
+</figure>
+</div>
+<p>In the previous chapter, we saw a similar pattern of change in rank abundance moving from the straight line of the species poor boreal forest through temperate deciduous and tropical semideciduous forests towards the species rich and relatively even tropical rainforest.</p>
+<p>Rank abundance can help us describe patterns, and change in patterns, over time and space. To help to explain these, we can develop models that produce different rank abundance patterns as a result of underlying processes. When we fit models to real world data, we can estimate parameters and goodness of fit, to see which models are a reasonable description of the community structure. We can then use these models as evidence to suggest which process gave rise to the community that we have observed.</p>
+</section>
+<section id="species-abundance-models" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="species-abundance-models"><span class="header-section-number">14.3</span> Species abundance models</h2>
+<p>There are two broad categories of species abundance models: <strong>statistical</strong> and <strong>biological</strong>. * Statistical models such as the log species <strong>describe</strong> the observed patterns of rank abundance, and the parameters of these models can tell us useful information such as the mean or variance of rank abundance within the community. * Biological (or theoretical, or mechanistic) models, such as the geometric series or niche apportionment, <strong>explain</strong> the observed pattern of rank abundance as the result of a process. The parameters of these models therefore tell us something about how the community arose.</p>
+<p>When we are referring to species abundance models, there is some common terminology: * <em>S</em> is (usually) the total number of species. However, sometimes this refers to the number of sites. When you write about models, always define your terms when you use them, to avoid ambiguity. We will endeavour to do the same here. * <em>N</em> is the total number of individuals * <span class="math inline">\(P_i\)</span> is the proportion of individuals that species <em>i</em> contributes to the total (relative abundance) * <span class="math inline">\(S_n\)</span> is the number of species with <em>n</em> individuals (the frequency of species in relation to abundance)</p>
+<p>Within our statistical and biological models, we can also ask whether the patterns of distribution are <strong>stochastic</strong> or <strong>deterministic</strong> (<a href="#fig-model-examples" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>).</p>
+<div id="fig-model-examples" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three different ways in which islands might be distributed across the sea: there might be a single island or two very closely connected pieces of land surrounded by water; evenly spaced islands in a line; islands of different sizes and distances apart.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/example-islands.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;14.2: . In a deterministic model, there is one rule to distribute individuals among islands, e.g.&nbsp;as a function of their number, size, habitat or distance from the mainland. In a stochastic model, there is a random variable at play and the rules are probability-based rather than perfectly repeatable. This is still a function of the driving factors such as number, size, habitat or distance, but two islands with equal properties are not guaranteed to have the same community composition."><img src="data-image/example-islands.png" class="img-fluid figure-img" alt="Three different ways in which islands might be distributed across the sea: there might be a single island or two very closely connected pieces of land surrounded by water; evenly spaced islands in a line; islands of different sizes and distances apart."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-examples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: . In a deterministic model, there is one rule to distribute individuals among islands, e.g.&nbsp;as a function of their number, size, habitat or distance from the mainland. In a stochastic model, there is a random variable at play and the rules are probability-based rather than perfectly repeatable. This is still a function of the driving factors such as number, size, habitat or distance, but two islands with equal properties are not guaranteed to have the same community composition.
+</figcaption>
+</figure>
+</div>
+<p>Here follows a handful of common species abundance models, with case studies for when they have been used to understand change or formation of communities. You do not need to memorise equations or be able to apply these from scratch. The main learning outcome is to appreciate that there are many different models, and each one has different underlying assumptions or implications for the community that it best fits.</p>
+</section>
+<section id="statistical-models" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="statistical-models"><span class="header-section-number">14.4</span> Statistical models</h2>
+<section id="log-series" class="level3" data-number="14.4.1">
+<h3 data-number="14.4.1" class="anchored" data-anchor-id="log-series"><span class="header-section-number">14.4.1</span> Log series</h3>
+<p>One of the first statistical species abundance models was developed by Fisher <em>et al.</em> (1943). The log series model gives the number of species within a community that are predicted to have <em>n</em> individuals (<span class="math inline">\(S_n\)</span>):</p>
+<p><span class="math display">\[
+S_n = {\alpha x^n \over n}
+\]</span> The number of species with an abundance of <em>n</em> (<span class="math inline">\(S_n\)</span>) is equal to a positive constant derived from the sample data (<span class="math inline">\(\alpha\)</span> : alpha) multiplied by a positive constant also derived from sample data (<em>x</em>), divided by the number of individuals that you are interested in (<em>n</em>). What does this mean in practice? If we wanted to find the number of species with 1, 2, 3, or more individuals, all the way up to n individuals, we would need to calculate the sequence:</p>
+<p><span class="math display">\[
+\alpha x, {\alpha x^2 \over 2}, {\alpha x^3 \over 3}, {\alpha x^4 \over 4}, ... , {\alpha x^n \over n}
+\]</span> In practice, the value of <em>x</em> tends to be close to one. This means that at the beginning of the sequence (n=1), <span class="math inline">\(\alpha\)</span> is roughly the number of species with 1 individuals. This can be taken as a measure of the number of rare species.</p>
+<p>As we approach the other end of the sequence, the number of individuals within a species increases (i.e.&nbsp;as it becomes more common), and the expected number of species with <em>n</em> individuals decreases. This means we may only get one or two species with a high number of individuals, or only one or two common species.</p>
+</section>
+<section id="case-study-log-series-in-indonesian-butterflies" class="level3" data-number="14.4.2">
+<h3 data-number="14.4.2" class="anchored" data-anchor-id="case-study-log-series-in-indonesian-butterflies"><span class="header-section-number">14.4.2</span> Case study: log series in Indonesian butterflies</h3>
+<p>Hill et al.&nbsp;(1995) compared the species abundance of butterflies in Buru, Indonesia, comparing logged and unlogged forest to determine if the community structures differed with different levels of disturbance (<a href="#fig-hill-species-abundance-plots" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>). Unlogged communities had more individuals and more species compared to the logged forest regions (<span class="quarto-unresolved-ref">?tbl-butterfly_data</span>). When a log series model was fitted to the data, the alpha value from the unlogged forest (7.94) was higher than that from the logged forest (6.99). Remembering that alpha is a rough representation of the number of species with 1 individuals, this implies that the unlogged communities have more rare species than the logged communities.</p>
+<div id="fig-hill-species-abundance-plots" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Rank abundance plot for butterflies in logged and unlogged forest. The logged forest appears to have fewer species, and the most common species is more dominant. The unlogged forest also has more rare species.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hill-species-abundance-plots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/hill-species-abundance-plots.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;14.3: "><img src="data-image/hill-species-abundance-plots.png" class="img-fluid figure-img" alt="Rank abundance plot for butterflies in logged and unlogged forest. The logged forest appears to have fewer species, and the most common species is more dominant. The unlogged forest also has more rare species."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-hill-species-abundance-plots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.3
+</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div id="tbl-butterfly-data" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-butterfly-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;14.1: Observed number of species and individuals, and best-fit parameters for the log series model, for unlogged and logged forest (from Hill et al. 1995).
+</figcaption>
+<div aria-describedby="tbl-butterfly-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Unlogged</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Logged</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Number of species</td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of individuals</td>
+<td style="text-align: left;">828</td>
+<td style="text-align: left;">458</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">alpha</td>
+<td style="text-align: left;">7.94</td>
+<td style="text-align: left;">6.99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">0.99</td>
+<td style="text-align: left;">0.98</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="log-normal" class="level3" data-number="14.4.3">
+<h3 data-number="14.4.3" class="anchored" data-anchor-id="log-normal"><span class="header-section-number">14.4.3</span> Log normal</h3>
+<p>The log normal model for species abundance was devised by Preston in 1948. Rather than plotting the relative number of individuals by species in rank order (as per a rank abundance plot), or calculating the exact frequencies of species with abundance <em>n</em> (as seen in the log series), the log normal model looks at the distribution of individuals amongst species using a histogram. In this histogram (<a href="#fig-species-abundance-histogram" class="quarto-xref">Figure&nbsp;<span>14.4</span></a>), the y axis represents the number of species. The x axis represents the number of individuals in that species, and these are grouped together into classes called octaves. The maximum number of individuals in each octave doubles as the classes increase, so the lowest octave is the number of species with one individual, then two individuals, then three or four individuals, then five to eight individuals, and so on: the x axis is thus using a log base 2 scale, and the species distribution should look approximately normally distributed. The modal class (remembering that the ‘mode’ is a version of an average, like the mean or the median) is the class containing the most common number of individuals per species (<a href="#fig-species-abundance-histogram" class="quarto-xref">Figure&nbsp;<span>14.4</span></a>).</p>
+<div id="fig-species-abundance-histogram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-species-abundance-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/species-abundance-histogram.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;14.4: "><img src="data-image/species-abundance-histogram.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-species-abundance-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.4
+</figcaption>
+</figure>
+</div>
+<p>The log normal equation <span class="math inline">\(S(R) = {S_0}exp(-\alpha^2R^2)\)</span> uses the number of species within the modal class (<span class="math inline">\(S_0\)</span>) and a function of the variance of the distribution (<span class="math inline">\(\alpha =( 2\alpha^2 )^{-0.5})\)</span>) to calculate the number of species in any of the octaves to the left or right of the modal class (<a href="#fig-log-normal-distribution-class" class="quarto-xref">Figure&nbsp;<span>14.5</span></a>). The key takeaway is that in a community that follows the log normal model, we expect to see very few species with very few individuals, and very few species with a large number of individuals.</p>
+<div id="fig-log-normal-distribution-class" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Another Preston plot, showing the equation described in the text. Rmin and Rmax describe the width of the distribution as the bars furthest to left or right of the modal class.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-log-normal-distribution-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/annotated-log-normal-distribution.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;14.5: "><img src="data-image/annotated-log-normal-distribution.png" class="img-fluid figure-img" alt="Another Preston plot, showing the equation described in the text. Rmin and Rmax describe the width of the distribution as the bars furthest to left or right of the modal class."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-log-normal-distribution-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.5
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="biological-models" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="biological-models"><span class="header-section-number">14.5</span> Biological models</h2>
+<p>Biological models for species abundance are based on the assumption that an ecological community has a ‘multidimensional niche space’ that is divided up amongst the species who live there. The relative abundance of species is used as a surrogate for niche size: for example, if half of the individuals observed belong to one species, we assume that that species occupies half of the available niche space. Biological models describe a process of niche fragmentation or niche filling that results in the observed species abundances. There are a number of different models that describe different niche apportioning. We will consider a handful briefly here.</p>
+<section id="geometric-series" class="level3" data-number="14.5.1">
+<h3 data-number="14.5.1" class="anchored" data-anchor-id="geometric-series"><span class="header-section-number">14.5.1</span> Geometric series</h3>
+<p>The geometric model is a very commonly seen biological model. It describes a process by which species arrive at regular time intervals into an unsaturated habitat (meaning there is still space left to occupy). It is assumed that each species that arrives will occupy a fixed fraction of the remaining niche space. The proportion of space occupied by the <em>i</em>th species to arrive is then:</p>
+<p><span class="math display">\[
+P_i = k(1 - k)^{i - 1}
+\]</span></p>
+<p>For example, if <em>k</em> = 0.5, then the first species occupies <span class="math inline">\(P_1\)</span> = 0.5 or half of the niche. The second species to arrive gets <span class="math inline">\(P_2\)</span> = 0.5(0.5) = 0.25 or quarter of the niche. The third species gets <span class="math inline">\(P_3\)</span> = 0.5(0.5)<span class="math inline">\(^2\)</span> = 0.125 or an eight of the niche, and so on.</p>
+<p>We see geometric mechanisms occurring in species-poor environments, or in environments that are very early in succession processes. One species is common and dominates the niche space, and the rare species very rapidly become rare - and eventually are not present at all. Because the ratio of each species to its predecessor is constant, when we plot the log abundance-rank graph, we see a straight line.</p>
+</section>
+<section id="case-study-geometric-series-in-the-park-grass-experiment" class="level3" data-number="14.5.2">
+<h3 data-number="14.5.2" class="anchored" data-anchor-id="case-study-geometric-series-in-the-park-grass-experiment"><span class="header-section-number">14.5.2</span> Case study: geometric series in the Park Grass experiment</h3>
+<p>The Park Grass experiment at Rothamsted is an experiment that was initially designed to determine the effects of organic and inorganic amendments and lime addition on grasslands used for hay. However, this is a long term experiment that also includes information about how the vegetation composition of the plots has changed over a number of years, from 1856 to 1949 (<a href="#fig-rothamsted-park-grass" class="quarto-xref">Figure&nbsp;<span>14.6</span></a>). Since 1856, we can see that the gradient of the rank-abundance lines has become steeper, from which we can deduce that the value of k in the geometric series model fitted to each set of data is increasing over time. That indicates that the dominant (nominally ‘first arriving’) species are increasingly dominant in recent years compared to during the Victorian origins of the experiment. As a result, species richness is lower, and presumably competition (and competitive exclusion) is stronger.</p>
+<div id="fig-rothamsted-park-grass" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rothamsted-park-grass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/rothamsted-park-grass.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;14.6: "><img src="data-image/rothamsted-park-grass.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-rothamsted-park-grass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.6
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="power-fraction" class="level3" data-number="14.5.3">
+<h3 data-number="14.5.3" class="anchored" data-anchor-id="power-fraction"><span class="header-section-number">14.5.3</span> Power fraction</h3>
+<p>Power fraction models are sequential breakage models in which niche space is divided at random into pieces. An invading species (the ‘colonists’) will compete for the niche of a species already present, and take a random proportion of that niche. The relative change of choosing any one niche is a power function of the size of that niche: that is, the relative chance of choosing a species with relative abundance <span class="math inline">\(P_i\)</span> is <span class="math inline">\(P_i^K\)</span> where <span class="math inline">\(0 ≤ K ≤ 1\)</span> (<a href="#tbl-niche-colonisation" class="quarto-xref">Table&nbsp;<span>14.2</span></a>).</p>
+<div class="cell">
+<div id="tbl-niche-colonisation" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-niche-colonisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;14.2: Diagram showing the chance of choosing a niche for colonisation, if the original community has three species occupying a quarter (0.25), a quarter (0.25) and a half (0.5) of the niche space on arrival of the invader. The power fraction example uses K = 0.5. The random fraction is the special case in which K = 0, and each species has equal chance of being invaded regardless of space occupied. The MacArthur fraction model is the special case in which K = 1, and the chance of being invaded is proportional to the niche space occupied.
+</figcaption>
+<div aria-describedby="tbl-niche-colonisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Niche space occupied</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Chance</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">0.25</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">0.25</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">0.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Random fraction</td>
+<td style="text-align: left;">$P{_i}{^0}$</td>
+<td style="text-align: left;">0.33</td>
+<td style="text-align: left;">0.33</td>
+<td style="text-align: left;">0.33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Power fraction</td>
+<td style="text-align: left;">$P{_i}{^K}$</td>
+<td style="text-align: left;">0.293</td>
+<td style="text-align: left;">0.293</td>
+<td style="text-align: left;">0.414</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">MacArthur fraction</td>
+<td style="text-align: left;">$P{_i}{^1}$</td>
+<td style="text-align: left;">0.25</td>
+<td style="text-align: left;">0.25</td>
+<td style="text-align: left;">0.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Power fraction models are pretty good at reflecting what’s happening in the real world: if you occupy a large niche, you’re slightly more likely to be invaded, but only slightly. This means that we see a long plateau in the rank abundance plots, with a lot of species of approximately similar relative abundance across the middle ranks (<a href="#fig-power-fraction-relative-abundance" class="quarto-xref">Figure&nbsp;<span>14.7</span></a>). This plateau is very flat where K=1, and becomes steeper as the K value gets closer to 0. Very species-rich assemblages tend to have a K value of less than or equal to 0.2.</p>
+<div id="fig-power-fraction-relative-abundance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-power-fraction-relative-abundance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/power-fraction-relative-abundance.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;14.7: "><img src="data-image/power-fraction-relative-abundance.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-power-fraction-relative-abundance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.7
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="comparing-models" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="comparing-models"><span class="header-section-number">14.6</span> Comparing models</h2>
+<p>All our models produce different distributions of species abundances (<a href="#fig-comparing-models" class="quarto-xref">Figure&nbsp;<span>14.8</span></a>). Some have more in common than others. For example, the log series yields a more even distribution of individuals among species than the geometric series, but both tend to have a low number of very abundant species and a large proportion of rare species. In fact, the log species is predicted to occur as a result of the same arrival model described by the geometric series, but here the interval between the arrival of species into an unsaturated habitat is random rather than regular. In the real world, it is most applicable where only one or a few factors drive the community assemblage - for example, on a forest floor, the main factor driving the community assemblage might be the availability of light.</p>
+<div id="fig-comparing-models" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comparing-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/comparing-models.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;14.8: A comparison of rank abundance curves generated by geometric series, log-series and log-normal models. The geometric series is characterized by a straight line, species poor, uneven community. The log series tends to be more species rich and more even but retains a number of very common species that may dominate. The log normal model is characterized by greater evenness, with some rare species and few very common ones, and many intermediately-ranked species with similar relative abundance."><img src="data-image/comparing-models.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comparing-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.8: A comparison of rank abundance curves generated by geometric series, log-series and log-normal models. The geometric series is characterized by a straight line, species poor, uneven community. The log series tends to be more species rich and more even but retains a number of very common species that may dominate. The log normal model is characterized by greater evenness, with some rare species and few very common ones, and many intermediately-ranked species with similar relative abundance.
+</figcaption>
+</figure>
+</div>
+<p>In contrast, log normal communities are diverse communities sampled with a high level of effort. Compared to the geometric series and the log series, log normal communities have a high species richness and a high level of evenness: 99% of species will occur within ±3 standard deviation of the mean. This evenness occurs because many small factors act on the abundance of each species, driving them all back towards the mean (you may remember this as the central limit theorem from your mathematics lessons at school). If there are lots of individuals within a population, then those are likely to reduce due to competition. If there are not many individuals, their numbers are likely to increase, and thus the species is likely to become less rare.</p>
+<p>Of course, ultimately we need to know if any of these models are useful when trying to understand the patterns of rarity and evenness in our communities of interest. It is important to remember that the observation of a pattern that is predicted by a model doesn’t necessarily validate the mechanisms that the model assumes; just because the pattern looks the same as the model, it doesn’t necessarily mean that the species arrived at the same end point in the same way as the model implies.</p>
+<p>In practice, usually more than one model will fit the real data quite well. As researchers, we hope that one or two models will fit the data particularly well: we are looking for statistical analyses to guide and support our evaluation of biological meaningfulness, not to replace it. We can then consider the underlying mechanisms in the sample location, and choose the ‘best’ model(s) that match both the patterns of rarity and commonness that we see and the likely underlying mechanisms for that environment and set of species.</p>
+</section>
+<section id="references" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="references"><span class="header-section-number">14.7</span> References</h2>
+<p>Bazzaz FA (1975). Plant species diversity in old-field successional ecosystems in South Illinois. Ecology 56: 485-488. https://doi.org/10.2307/1934981</p>
+<p>Hill JK, Hamer KC, Lace LA, Banham WMT (1995). Effects of selective logging on tropical forest butterflies on Buru, Indonesia. Journal of Applied Ecology 32: 754-760.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../diversity/diversity-overview.html" class="pagination-link" aria-label="Diversity">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Diversity</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../diversity/diversity-patterns-species-richness.html" class="pagination-link" aria-label="Patterns of species richness">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Patterns of species richness</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

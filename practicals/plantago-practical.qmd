@@ -1,0 +1,92 @@
+# *Plantago* distributions practical {#sec-plantago-practical}
+
+[Download the practical files](files/BIO00036I%20Plantago%20Practical.docx)
+
+## Practical overview
+
+In this practical, you will be investigating the spatial structure of a population of the ribwort plantain (*Plantago lanceolata*) on a grass bank near the Department of Biology.
+
+In this practical, you will:
+
+-   Use quadrats of two different sizes to count individual plants on the grass bank.
+-   Submit your data to the class spreadsheet.
+
+## Background to distributions
+
+The spatial structure of a population can be characterised by whether it is random, aggregated, or regular (@fig-dispersal).
+
+1.  Random: the position of each individual is independent of the position of every other individual. You could think of this as the absence of any pattern. It might come about through the random scattering of seeds on the ground surface.
+
+2.  Aggregated (underdispersed): individuals tend to occur in clumps close together. Such a pattern can arise if there is localised dispersal (e.g. seeds stay very close to their parent), or if there are only certain microsites in which individuals can live.
+
+3.  Regular (overdispersed): individuals tend to occur in a rather evenly spaced manner. This can happen if there is strong competition between neighbouring individuals leading to death of some of them.
+
+::: {#fig-dispersal}
+![](data-image/dispersal.png){fig-alt="Overdispersed, random, and aggregated or clustered dispersal."}
+
+Three examples of spatial patterns of individuals: from left to right, these are overdispersed or regular, random, and aggregated or clustered.
+:::
+
+The spatial structure is important because it may give clues as to the dynamic processes which have taken place in the past giving rise to the present distribution in space. It also sets the path for dynamics in the future in circumstances where individuals interact primarily with their immediate neighbours.
+
+## Learning Outcomes
+
+By the end of this practical, you should be able to:
+
+-   Design an experiment to decide whether the spatial pattern of plantain individuals is random, regular, or aggregated
+-   Be familiar with the use of quadrats to standardise sampled areas.
+-   Collect the data to test your hypothesis.
+-   Be prepared to use statistical distributions to analyse and interpret your data.
+
+## Instructions
+
+-   A briefing presentation will be given at the beginning of the practical, with details of what you will need to do explained. In the practical, you will meet in the Biology teaching lab to be briefed and collect equipment. You will carry out the sampling on campus and then return your equipment and submit your data.
+-   After the briefing we will move to the grass outside Biology to carry out the sampling.
+-   Wear sensible footwear, warm clothes and, if necessary, waterproofs.
+-   You will be working in small groups to collect data on the location of quadrats and the number of plantains within the quadrat.
+
+### Practical techniques you should be familiar with before this practical
+
+-   Keeping a laboratory notebook
+
+(If you are unfamiliar with these techniques or need a refresher before the practical, please visit the practical skills section on the [VLE Skills Hub](https://xerte.york.ac.uk/play.php?template_id=4175#page1))
+
+## New practical techniques learnt in this practical
+
+-   This practical allows you to practise sampling fixed areas using quadrats and consolidate sampling techniques you will also have a chance to test using LEGO.
+
+## Skills that can be signed off during this practical
+
+-   Keeping a laboratory notebook
+
+## Safety
+
+-   This practical will partly be held outside at a field site on campus. You should remain with the group and in contact with the academic staff and/or demonstrator at all times
+-   Wear sensible footwear, warm clothes, and, if necessary, waterproofs. Be careful when carrying equipment to the field site
+-   No smoking or vaping
+-   The module organiser has a first aid kit (e.g. for cuts).
+
+## Experimental protocol
+
+### Overview of practical
+
+The basic idea is to count the number of plantain plants in randomly positioned quadrats, and to look at the variation present when the data from a large number of quadrats are put together. Imagine placing quadrats onto the different spatial distributions described and illustrated above, the size of the quadrat being either small or large
+
+If the pattern is regular, all the quadrats will contain more or less the same number of plants. At the other extreme, if the plants are aggregated, some of the quadrats will contain many plants and others will contain none. If the pattern is random, the frequency distribution of number of plants per quadrat will have a Poisson distribution. What would the data look like if the quadrat is approximately the same size as a plant?
+
+Work in small groups.
+
+Make sure you’re confident in your identification of *Plantago lanceolata.* Individuals may be quite small and could potentially be confused with other species such as the common daisy *Bellis perennis*.
+
+Each group should work with quadrats of two sizes: 40 x 40 cm (small) and 1 x 1 m (large). Each of these can be generated using the large, subdivided quadrats.
+
+An ‘origin’ and x and y ‘axes’ for the grass bank will be marked out with stakes and tape measures so that you are all working in the same space.
+
+Use random number tables or a random number generator on your phone, so that you can choose a random x and y coordinate on which to place the quadrat. Using the small quadrat first, count the number of individual plants present. Repeat this using the larger quadrat, keeping the two data sets separate. Aim to get counts for both quadrat sizes for around 15 coordinates. We need to have a large number of quadrats of each size to be able to look at the frequency distribution, and we will end up by pooling all the data collected for each quadrat size.
+
+Record all your data using the table on the next page, and when you have finished, enter it into the Google sheet that is on the VLE.
+
+### Before you leave
+
+-   Tell a member of staff that your group has finished sampling
+-   Return all equipment to the location that you got it from

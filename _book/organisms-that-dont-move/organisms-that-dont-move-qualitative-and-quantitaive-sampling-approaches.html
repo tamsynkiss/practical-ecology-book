@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Qualitative and quantitative approaches to sampling – Practical Ecology book</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../organisms-that-dont-move/organisms-that-dont-move-the-concept-of-the-individual.html" rel="next">
+<link href="../organisms-that-dont-move/organisms-that-dont-move-the-poisson-distribution.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../organisms-that-dont-move/organisms-that-dont-move-overview.html">Chapter 1: Organisms that do not move</a></li><li class="breadcrumb-item"><a href="../organisms-that-dont-move/organisms-that-dont-move-qualitative-and-quantitaive-sampling-approaches.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Qualitative and quantitative approaches to sampling</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Practical Ecology book</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../organisms-that-dont-move/organisms-that-dont-move-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 1: Organisms that do not move</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-the-poisson-distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Poisson Distribution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-qualitative-and-quantitaive-sampling-approaches.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Qualitative and quantitative approaches to sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-the-concept-of-the-individual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The concept of the individual</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-poisson-r-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The R code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-dont-move/organisms-that-dont-move-workshop-ver-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The workshop: <em>Plantago</em> and LEGO</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../organisms-that-move/organisms-that-move-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organisms that move</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-sampling-animal-populations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sampling animal populations: the Lincoln-Petersen index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-limitations-lincoln-petersen-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Building on limitations of the Lincoln-Petersen index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../organisms-that-move/organisms-that-move-methods-for-sampling-animal-populations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Methods for sampling animal populations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../species-richness/species-richness-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Species Richness</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-characterising-communities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Characterising communities</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-commonness-and-rarity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Commonness and rarity matters</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-measuring-species-richness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Measuring species richness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-case-study-breeding-birds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Case study: breeding bird censuses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../species-richness/species-richness-summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Species richness: A summary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../diversity/diversity-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diversity</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-patterns-of-abundance-and-evenness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Patterns of species abundance and evenness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-patterns-species-richness.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Patterns of species richness</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../diversity/diversity-ecological-diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Ecological diversity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../practicals/practical-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practicals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practicals/plantago-practical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><em>Plantago</em> distributions practical</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../practicals/pitfall-practical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Ground-Dwelling Insects and Small Animals</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#qualitative-approaches-to-sampling" id="toc-qualitative-approaches-to-sampling" class="nav-link active" data-scroll-target="#qualitative-approaches-to-sampling"><span class="header-section-number">2.1</span> Qualitative approaches to sampling</a></li>
+  <li><a href="#examples-of-qualitative-measures" id="toc-examples-of-qualitative-measures" class="nav-link" data-scroll-target="#examples-of-qualitative-measures"><span class="header-section-number">2.2</span> Examples of qualitative measures</a></li>
+  <li><a href="#cover-class-scales" id="toc-cover-class-scales" class="nav-link" data-scroll-target="#cover-class-scales"><span class="header-section-number">2.3</span> Cover-class scales</a></li>
+  <li><a href="#quantitative-approaches-to-sampling" id="toc-quantitative-approaches-to-sampling" class="nav-link" data-scroll-target="#quantitative-approaches-to-sampling"><span class="header-section-number">2.4</span> Quantitative approaches to sampling</a></li>
+  <li><a href="#how-do-you-make-quantitative-measurements" id="toc-how-do-you-make-quantitative-measurements" class="nav-link" data-scroll-target="#how-do-you-make-quantitative-measurements"><span class="header-section-number">2.5</span> How do you make quantitative measurements?</a></li>
+  <li><a href="#quadrats---the-ecologists-friend" id="toc-quadrats---the-ecologists-friend" class="nav-link" data-scroll-target="#quadrats---the-ecologists-friend"><span class="header-section-number">2.6</span> Quadrats - The ecologist’s friend</a></li>
+  <li><a href="#placing-quadrats" id="toc-placing-quadrats" class="nav-link" data-scroll-target="#placing-quadrats"><span class="header-section-number">2.7</span> Placing quadrats</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../organisms-that-dont-move/organisms-that-dont-move-overview.html">Chapter 1: Organisms that do not move</a></li><li class="breadcrumb-item"><a href="../organisms-that-dont-move/organisms-that-dont-move-qualitative-and-quantitaive-sampling-approaches.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Qualitative and quantitative approaches to sampling</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-qual-and-quant" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Qualitative and quantitative approaches to sampling</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Now we’re moving on to consider our approach to sampling in the field. We have to adapt our sampling strategies to suit the circumstances, and any previous studies that you want to compare results with.</p>
+<p>Sampling takes time, effort and equipment. There is going to be a trade-off between the quantity of data you can collect and the quality: you will usually only have capacity to collect few very high quality data points, or many lower quality data points. The decision will vary with the study and may take some pilot testing first.</p>
+<p>Sampling takes time, effort and equipment. There is going to be a trade-off between the quantity of data you can collect and the quality: you will usually only have capacity to collect few very high quality data points, or many lower quality data points. The decision will vary with the study and may take some pilot testing first.</p>
+<section id="qualitative-approaches-to-sampling" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="qualitative-approaches-to-sampling"><span class="header-section-number">2.1</span> Qualitative approaches to sampling</h2>
+<p>Some approaches you might take to sampling qualitatively are:</p>
+<ul>
+<li>&nbsp;“Fast and dirty”</li>
+<li>&nbsp;Qualitative grouping of abundance
+<ul>
+<li>&nbsp;Using an arbitrary scale</li>
+<li>&nbsp;Using % cover</li>
+</ul></li>
+<li>&nbsp;Subjective, often unsuitable for statistical analysis.</li>
+<li>&nbsp;Frequently used for monitoring temporal change.</li>
+</ul>
+<p>Qualitative data has a huge advantage - it is fast. It’s quick because we don’t have to take big samples and closely ID things, and don’t need to count things in a time-consuming quantitative way. However, the data quality might be poor and the data you get might not be suitable for statistical analysis.</p>
+<p>We can get a qualitative estimate of what’s there by grouping abundance, either using an arbitrary scale (such as abundance scales) or using percentage cover. So rather than counting the exact number of individuals, you can classify a species as rare on one site and abundant on another, or can give an estimate of percentage cover of that species.</p>
+<p>These counts are subjective and on an arbitrary scale so they’re often not suitable for statistical analysis. But if the same person makes these qualitative estimates, and there is some consistency, they can be effective means of monitoring temporal change or making a quick comparison between sites or areas. For example, for fixed monitoring sites, you can ask whether the abundance of a species is increasing or decreasing and get fast and dirty estimates for those changes.</p>
+</section>
+<section id="examples-of-qualitative-measures" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="examples-of-qualitative-measures"><span class="header-section-number">2.2</span> Examples of qualitative measures</h2>
+<ul>
+<li>&nbsp;Species lists</li>
+<li>&nbsp;Abundance scales:
+<ul>
+<li>&nbsp;ACFORN: Abundance, Common, Frequent, Occassional, Rare, None.</li>
+</ul></li>
+<li>“Cover-class” scales
+<ul>
+<li>Conversion of % cover into a 1-n scale</li>
+<li>Weights lower abundance species</li>
+</ul></li>
+</ul>
+<p>Species lists are a crude estimate for species diversity (because abundance might change but the species list might not) and therefore only give a partial picture of the community.</p>
+<p>Abundance scales give categorical values to the abundance of a species in an area. The ACFORN scale using the descriptors ‘abundant’, ‘common’ and so on is a very widely used method.</p>
+<p>Cover-class scales are a little more quantitative than the abundance scale. They take percentage cover values to convert into some sort of scale that tells you something about the structure of the community. If these are related to specific % cover (e.g.&nbsp;how much of a rock is covered by barnacles; <a href="#fig-barnacles" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>) they can be relatively comparable among studies and observers. They are often used for rare species where percentage cover values would be very low and so changes between temporal points are difficult to determine.</p>
+<div id="fig-barnacles" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A large number of barnacles.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-barnacles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/barnacles.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;2.1: A large number of barnacles fixed to a rock"><img src="data-image/barnacles.png" class="img-fluid figure-img" alt="A large number of barnacles."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-barnacles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: A large number of barnacles fixed to a rock
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="cover-class-scales" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="cover-class-scales"><span class="header-section-number">2.3</span> Cover-class scales</h2>
+<p>Three of the most common cover-class scales that you’ll come across in the literature are Braun-Blanquet, Domin and Daubenmire. The simple approach is to take estimated percentage cover e.g.&nbsp;within a quadrat, and map that percentage onto one of these numbered classes. This is good for long-term monitoring of sites.</p>
+<div class="cell">
+<div id="tbl-cover-class" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cover-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Three common cover-class scales seen in the literature.
+</figcaption>
+<div aria-describedby="tbl-cover-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Class</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Braun-Blanquet</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Domin</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Daubenmire</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">&lt;1 %</td>
+<td style="text-align: left;">Insignif; 1 - 2 inds</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1-5%</td>
+<td style="text-align: left;">&lt;4% - rare</td>
+<td style="text-align: left;">1 - 5%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">6 - 25%</td>
+<td style="text-align: left;">&lt; 4% - occasional</td>
+<td style="text-align: left;">1 - 5%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">26 - 50%</td>
+<td style="text-align: left;">&lt;4% - frequent</td>
+<td style="text-align: left;">26 - 50%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">51 - 75%</td>
+<td style="text-align: left;">4 - 10%</td>
+<td style="text-align: left;">51 - 75%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">&lt;75%</td>
+<td style="text-align: left;">11 - 25%</td>
+<td style="text-align: left;">76 - 95%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">26 - 33%</td>
+<td style="text-align: left;">&gt;96%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">34 - 50%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">51 - 75%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">76 - 90%</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">&gt;90%</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="quantitative-approaches-to-sampling" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="quantitative-approaches-to-sampling"><span class="header-section-number">2.4</span> Quantitative approaches to sampling</h2>
+<p>When you come up with hypotheses you need to test them using statistics. The qualitative approach will only get you so far and you will need to use quantitative approaches to get data more suited to statistical analysis.</p>
+<p>What do you measure?</p>
+<ul>
+<li>Individuals:
+<ul>
+<li>Counts of individuals in the experiment area</li>
+</ul></li>
+<li>Other variables:
+<ul>
+<li><p>Productivity/yield measures, e.g.&nbsp;total biomass, or harvestable yield (seed production, timber volume etc.)</p></li>
+<li><p>Leaf area estimates</p></li>
+</ul></li>
+</ul>
+<p>What you choose depends on the question or hypothesis as well as what organisms you are interested in.</p>
+<p>The most obvious thing to count is the number of individuals at a particular location, or within a set area. You can then test differences between areas or within an area through time.</p>
+<p>There may be other variables that might be more appropriate and it will, again, depend on the question. If you’re interested in productivity or ‘net ecosystem carbon exchange’ you might need a biomass measure or a growth rate, or if it’s a measure of fitness then seed production might be appropriate. If you’re creating a life table then the ages, stages or size of individuals might be appropriate.</p>
+<p>Once you’ve articulated the question you need to think about what data is appropriate to collect to address it.</p>
+<p>Always think about the stats you’re going to use before you actually collect the data. That way you can be sure that you’re going to record appropriate data.</p>
+</section>
+<section id="how-do-you-make-quantitative-measurements" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="how-do-you-make-quantitative-measurements"><span class="header-section-number">2.5</span> How do you make quantitative measurements?</h2>
+<p>We’ve covered some of what you could measure – but what about how?</p>
+<ul>
+<li>Density; no. of individuals per unit area
+<ul>
+<li>Comparison among species/treatments</li>
+</ul></li>
+<li>Frequency; how many occurrences of target in a sample
+<ul>
+<li>Distribution in space</li>
+</ul></li>
+</ul>
+<p>The number of individuals counted doesn’t give a sense of the area that you’re sampling from. By expressing abundance as density (i.e.&nbsp;number of individuals or biomass per, say, square metre) then you have a much more standardised measure which is therefore appropriate for comparisons across species, sites or treatments (depending on your question).</p>
+<p>Often it’s not practical to count all individuals in an area. Instead, we use sampling. That means counting individuals in small representative areas and extrapolating. For plants that usually means using quadrats. For animals it’s often by setting traps (physical or camera) which will generate data from which we determine a frequency of our target species and get an understanding of their distribution in space.</p>
+<p>How many samples to take is an important consideration and you may need to use some statistical analyses such as power analysis, to work out an appropriate sampling regime.</p>
+<p>Power analysis is best deployed once you’ve got some pilot data and it will give you an idea of what sample size would be needed to achieve a significant result.</p>
+<p>There are usually many ways of measuring different properties. Therefore you should be mindful of the biology of your species when deciding which one to pick. For example, think about a snail and a slug: they are both molluscs and quite closely related, but you might not choose the same size measure for both of them.</p>
+</section>
+<section id="quadrats---the-ecologists-friend" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="quadrats---the-ecologists-friend"><span class="header-section-number">2.6</span> Quadrats - The ecologist’s friend</h2>
+<p>Quadrats are the ‘go to’ method for sampling plants. They are something you probably are already familiar with.</p>
+<p>Quadrats are squares of known area made of wire or something similar. There are two types of quadrats (<a href="#fig-quadrats" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>)</p>
+<div id="fig-quadrats" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-quadrats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="data-image/frame-quadrat.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2.2: A frame quadrat (left) and a point quadrat (right)."><img src="data-image/frame-quadrat.png" class="img-fluid figure-img" alt="A 5 by 5 frame quadrat placed over a patch of lawn."></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="data-image/point-quadrat.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2.2: A frame quadrat (left) and a point quadrat (right)."><img src="data-image/point-quadrat.png" class="img-fluid figure-img" alt="A point quadrat frame"></a></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quadrats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: A frame quadrat (left) and a point quadrat (right).
+</figcaption>
+</figure>
+</div>
+<p>The size and placing of quadrats is determined by the organism &amp; hypothesis being tested, and you have to consider the scale of the organism in relation to the environmental ‘grain’ or ‘pixel size’ you should be looking at. The most important part of your decision here is practicality - how many quadrats could you measure? Almost as important is the size and spread of your organism. You don’t want a quadrat that can only capture one individual. It is a bit like deciding on what sieve to use – what mesh size will get you the info you want without getting a load of excess info that you don’t want. That is sometimes hard to enumerate.</p>
+<p>Usually you will only use one quadrat size, but there is potentially extra information to be gained by using different sizes of quadrats.</p>
+<p>As an example, <a href="#fig-daisies-and-dandelions" class="quarto-xref">Figure&nbsp;<span>2.3</span></a> shows a small area of a vibrant lawn with a large number of daisies and dandelions. Here a 1 metre by 1 metre quadrat might be a good size to count dandelions. However something more like 50 cm by 50 cm (or even smaller) will be appropriate for counting the daisy flowers. A simple conversion will allow you to express the density of both flowers to ‘per square metre’.</p>
+<div id="fig-daisies-and-dandelions" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Image showing the spatial distribution of daisies on a lawn, in small clusters or randomly spread.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-daisies-and-dandelions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/daisies-and-dandelions.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;2.3: "><img src="data-image/daisies-and-dandelions.jpg" class="img-fluid figure-img" alt="Image showing the spatial distribution of daisies on a lawn, in small clusters or randomly spread."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-daisies-and-dandelions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3
+</figcaption>
+</figure>
+</div>
+<p>In contrast, in a tropical rainforest (<a href="#fig-old-growth-rainforest" class="quarto-xref">Figure&nbsp;<span>2.4</span></a>) a 50 cm quadrat would be useless. It would be much more likely that you would choose 100m x 100m (a hectare) to count dipterocarp trees in tropical rainforest, as even one trunk wouldn’t fit into 50cm by 50cm unit space. Trees per hectare is likely to be much more use than trees per square metre.</p>
+<div id="fig-old-growth-rainforest" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Image showing trees and undergrowth in an old growth forest.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-old-growth-rainforest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/old-growth-rainforest.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;2.4: "><img src="data-image/old-growth-rainforest.jpg" class="img-fluid figure-img" alt="Image showing trees and undergrowth in an old growth forest."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-old-growth-rainforest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="placing-quadrats" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="placing-quadrats"><span class="header-section-number">2.7</span> Placing quadrats</h2>
+<p>There are lots of ways of placing quadrats and it is not as simple as it sounds. Throwing quadrats is not recommended as it will nearly always have a bias of some sort. Instead, consider:</p>
+<ul>
+<li>Random placing:
+<ul>
+<li>Appropriate for most sites and scales</li>
+<li>Assumes all locations have equal probability of being sampled in space and time</li>
+</ul></li>
+<li>Systematic placing
+<ul>
+<li>Monitoring plots</li>
+<li>Transects along environmental gradients</li>
+</ul></li>
+<li>Stratified random sampling
+<ul>
+<li>e.g.&nbsp;regular samples along randomly placed transects</li>
+</ul></li>
+</ul>
+<p>By far the most common approach is to try to achieve random placement within a larger area. This assumes that all locations have equal probability of being sampled in space and time so a random sample should give representative results. Another advantage of random placement of quadrats is that you can stop when time runs out and there’s less bias than something more systematic.</p>
+<p>That being said, systematic sampling is useful too. This is when samples are structured in time/space. Temporal sampling would be used for monitoring plots: to be able to return to exactly the same point is helpful rather than sampling from random locations. One way that is achieved is to place metal pegs marking quadrat locations and then find them again using a metal detector. These days, using a GPS on a phone will get you back to pretty much the exact point.</p>
+<p>Sometimes you want to place a sampling transect across an environmental gradient. That would require systematic placement of quadrats across a gradient of wet to dry, or open to closed canopy or any other environmental gradient.</p>
+<p>The two approaches could be combined with fixed transects but with random samples along the transect.</p>
+<p>Stratified random sampling is deployed when you know there is some environmental or habitat change. For example in your wooded area you know that 70% has closed canopy and the rest open (clearings, rides, verges etc.). So to ensure you’re sampling from both habitats at the same density you might place 70% of the quadrats at random locations in closed canopy etc.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../organisms-that-dont-move/organisms-that-dont-move-the-poisson-distribution.html" class="pagination-link" aria-label="The Poisson Distribution">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Poisson Distribution</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../organisms-that-dont-move/organisms-that-dont-move-the-concept-of-the-individual.html" class="pagination-link" aria-label="The concept of the individual">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The concept of the individual</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

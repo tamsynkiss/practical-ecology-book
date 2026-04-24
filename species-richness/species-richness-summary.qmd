@@ -1,0 +1,8 @@
+# Species richness: A summary {#sec-species-richness-summary}
+
+The patterns of species accumulation over increasing sampling effort encapsulate different processes and scales of observation. Three key questions to bear in mind are:
+*   How many species are found on average in one sample?
+*   How many species coexist in the community at large?
+*   How much does the relative abundance of species vary between any pair of samples in your dataset, or between communities that you want to compare?
+
+In the next chapter we will build on these ideas to explore how we can estimate ‘true’ species richness from observed species using different methods, and combine species relative abundance with species richness to measure ecological diversity.

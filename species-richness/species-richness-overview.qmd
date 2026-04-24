@@ -1,0 +1,11 @@
+---
+title: "Species Richness"
+---
+
+{#sec-species-richness-overview}
+
+In the last two chapters, we have explored how to sample populations of things that move (e.g. animals) and things that don’t move (including plants).
+
+In this chapter, we will start to consider how we can understand communities, or collections of populations, that are all present in the same place at the same time. We’ll start by exploring how we estimate how many species (populations) are present, using observational data (@sec-characterising-communities). This will take us towards ideas about how some species in a community are more common and others are rarer, i.e. the number of individuals, or the size of the population, of each species differs (@sec-commonness-and-rarity). We’ll then consider how these community compositions might affect estimates of species richness, and how to compare between communities with different sampling effort (@sec-measuring-species-richness). Finally, we'll go over concepts of randomisation and rarefaction in a case study from a paper examining censuses of breeding bird populations (\@sec-bird-survey-case-study). And, because there's a lot of concepts in this chapter, we'll end with a brief summary (\@sec-species-richness-summary) before you move on to the next bit of content.
+
+In the workshop this week you will apply some of these sampling techniques to your LEGO community, and (weather dependent) estimate the species richness of the waterfowl community on the Campus West lake.

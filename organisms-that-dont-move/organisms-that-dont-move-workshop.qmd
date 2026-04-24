@@ -1,0 +1,346 @@
+# The workshop: *Plantago* and Lego {#sec-workshop}
+
+Today, using both your sampled real world populations and your lego populations, we are going to try to determine if the distribution of a species of interest is random, clustered, or regularly spaced.
+
+## Plantago
+
+### Introduction
+
+In the practical (@sec-plantago-practical), you investigated the distribution of populations of ribwort plantain (*Plantago lanceolata*) in a specific area of campus.
+
+You used quadrats of two different sizes - 100cm x 100cm (large) and 40cm x 40cm (small) to determine the impacts that sampling efforts has on your findings.
+
+You then entered your data onto the shared Google sheet.
+
+### Task - importing the data
+
+Today, we are going to import the data into R, and carry out the $\chi^2$ test to determine whether the plantago are randomly distributed, clustered, or regularly spaced.
+
+First, you'll need to run the relevant packages and read in the data from the practical. We're using Google sheets to perform this analysis; you can use the `googlesheets4` package to read in from a google sheets document by extracting the unique code contained in the URL (see @fig-google-sheets-url). For this example, we're going to work with the 2024 data, so your results **will** look different.
+
+::: {#fig-google-sheets-url}
+![](data-image/url-screenshot.png){fig-alt="A screnshot of the url for the relevant google sheets page. The unique identifier for this code, found between /d and /edit in the URL, has been underlined"}
+
+The underlined section is the unique identifier for this google sheet. You can copy and paste that into the code below, and update the 'sheet' command to reflect the year you want.
+:::
+
+```{r}
+# load the library
+library(googlesheets4)
+
+# turn off authentication (because the sheet is viewable by anyone)
+gs4_deauth() 
+
+# Read in the data. Make sure the year reflects the year you want! 
+plantago_data <- read_sheet("1fuWMMmtEHRbGewePeafehbBr1Fky3N6FUI4_ISfz0q8", 
+                            sheet = "2024") 
+
+ # check the top of the dataframe to make sure it worked
+head(plantago_data)
+
+```
+
+Now we need to do some data sense checking. We know that we used small and large quadrats. What format was used to differentiate that data here? In the 2024 example, this is 'S' and 'L'.
+
+Next we want to determine the mean (or $\mu$) for the different quadrat sizes.
+
+The following approaches can be carried out in base R or in tidyverse format. Both are presented here; you **don't** have to do both, but it's good to see that there are different routes to the same outcome. The following examples also only carry out the analysis for the large quadrats. Can you reproduce it for the small quadrats?
+
+#### Base R approach
+
+We can do this using base R or using tidyverse.
+
+```{r}
+# This bit of code asks R to extract the number of individuals data from the plantago dataset, but specifies that we're after the size L quadrats
+large_quadrats <- plantago_data$`Num of individuals`[which(plantago_data$`Quadrat Size` == 'L')] 
+# Calculate the mean of the object we created above
+large_mu <- mean(large_quadrats, na.rm = TRUE)
+# Return the value
+print(large_mu)
+
+# We'll also need to determine the number of quadrats 
+num_large_quadrats <- length(large_quadrats) # number of quadrats 
+```
+
+We can then create a histogram of our dataset, to see the distribution of our number of individuals. Do most quadrats have 0, 1, or 2 or more individuals?
+
+```{r}
+hist(large_quadrats)
+```
+
+Next, we need to generate our expected values based on the poisson distribution. This approach is the same for both the base R and the Tidyverse approaches, but the object names etc are different, so be careful when copying and pasting.
+
+```{r}
+# Generate the Poisson probability of a quadrat having between 0 and (x+5) 
+# plants where x is the largest number seen in the data
+PoissonProbs <- dpois(0:(max(large_quadrats)+5), lambda = large_mu)
+
+# Determine probably number of quadrats in each category
+expected = PoissonProbs*num_large_quadrats 
+
+# Find the maximum number of plants found in a large quadrat
+print(max(large_quadrats)) 
+# Find the total number of plants
+print(sum(large_quadrats)) 
+```
+
+This has given us the expected number of plants in each category of data - 0 individuals, 1 individuals, 2 individuals.. all the way up to 12 individuals (in the 2024 dataset). We need to force our observed data into the same format. Finally, we create a vector of our observed variables that counts all of the observations in each category (0 plants, 1 plant, 2 plants, etc), but that excludes the zeroes. We can put this into a table, for ease of understanding
+
+```{r}
+# The number of quadrats with 0 to (x+5) plants is a vector of length x+6
+observed <- rep(0, (max(large_quadrats) + 6)) 
+
+# Create the empty table
+plant_table <- table(large_quadrats)
+
+# Put the observed data into the correct part of the empty vector
+for (i in 1:length(plant_table)){
+  observed[as.numeric(names(plant_table)[i]) + 1] <- as.numeric(plant_table[i])
+}
+
+print(plant_table)
+
+```
+
+Now we can plot our data, comparing the observed versus expected number of plants per quadrat, and perform the $\chi^2$ test.
+
+```{r}
+plot(expected, xlab='Number of plants per quadrat', ylab='Expected (open) and observed (solid) number of quadrats in this category')
+points(observed, pch=16)
+chisq.test(observed, expected)
+```
+
+What can we conclude about the distribution of our data?
+
+#### Tidyverse approach
+
+```{r}
+library(tidyverse)
+# Create a summary table from our plantago dataset, listing the means, variance, and number of quadrats (length)
+quadrat_summary <- plantago_data |>
+  drop_na(`Num of individuals`) |> #Removes any empty cells
+  group_by(`Quadrat Size`) |>
+  summarise(mean = mean(`Num of individuals`), 
+            var = var(`Num of individuals`),
+            num = length((`Num of individuals`)))
+print(quadrat_summary) 
+
+# Create objects based on these values based on the summary table output. The 
+# first row in the dataframe is the L quadrats, so [1] is used to pull the mean
+# for that dataset. 
+L_mu <- quadrat_summary$mean[1] 
+S_mu <- quadrat_summary$mean[2] 
+
+# Create objects using the same method to pull the number of quadrats
+L_num <- quadrat_summary$num[1]
+S_num <- quadrat_summary$num[2]
+
+# Finally, create a separate dataframe consisting only of the L quadrat data
+L_quadrats_tidy <- plantago_data |>
+  filter(`Quadrat Size` == "L") 
+
+# You could also create the separate dataframe first and then create two 
+# separate summary datasets to extract the objects from
+```
+
+We can then create a histogram of the datasets, to see how many quadrats contain 0, 1, 2, or more individuals
+
+```{r}
+ggplot(L_quadrats_tidy, aes(x = `Num of individuals`)) +
+  geom_histogram(bins = 10)
+
+```
+
+### Task - generating expected values
+
+Next, we need to generate our expected values based on the poisson distribution. This approach is the same for both the base R and the Tidyverse approaches, but the object names are different, so be careful when copying and pasting.
+
+```{r}
+# Generate the Poisson probability of a quadrat having between 0 and (x+5) 
+# plants where x is the largest number seen in the data
+PoissonProbs <- dpois(0:(max(L_quadrats_tidy$`Num of individuals`) + 5), 
+                      lambda = L_mu)
+
+# Determine probable number of quadrats in each category
+expected <- PoissonProbs*L_num 
+
+# Find the maximum number of plants found in a large quadrat
+print(max(L_quadrats_tidy$`Num of individuals`)) 
+# Find the total number of plants
+print(sum(L_quadrats_tidy$`Num of individuals`)) 
+```
+
+This has given us the expected number of plants in each category of data - 0 individuals, 1 individuals, 2 individuals.. all the way up to 12 individuals (in the 2024 dataset). We need to force our observed data into the same format. Finally, we create a vector of our observed variables that counts all of the observations in each category (0 plants, 1 plant, 2 plants, etc), but that excludes the zeroes. We can put this into a table, for ease of understanding
+
+```{r}
+observed <- rep(0, (max(L_quadrats_tidy$`Num of individuals`)+6)) # how many quadrats with 0 to (x+5) plants is a vector of length x+6
+plant_table <- table(large_quadrats)
+
+for (i in 1:length(plant_table)){ 
+  observed[as.numeric(names(plant_table)[i])+1] <- as.numeric(plant_table[i]) 
+}
+
+# put the data into the correct bit of the observed data
+```
+
+We can now run the $\mu^2$ test.
+
+```{r}
+
+chisq.test(observed, expected)
+
+```
+
+## Lego practical
+
+### Loading in and plotting the data
+
+For this example, we are using the data contained in the [36i model data](https://docs.google.com/spreadsheets/d/1zEzeLF_fLPYlXqvPcCZ0r0Jmb_i7pkLywQs--5LQuZw/edit?gid=0#gid=0). Follow the process through, then try it yourself with your own data.
+
+In this scenario, we have a spreadsheet documenting 6 samples, where we counted the number of red, blue, green, and yellow 'plants'.
+
+```{r}
+# load the googlesheets function (if you haven't already)
+library(googlesheets4)
+# load tidyverse (if you haven't already)
+library(tidyverse)
+
+# turn off authentication (because the sheet is viewable by anyone)
+gs4_deauth() 
+
+# Update the following code to read in your data 
+# Changing the ID code will change the spreadsheet you read in
+# Changing the sheet identifier will change which sheet of data gets pulled in. 
+# If this is not present, R will load in the first sheet by default.
+# Leave as it is to proceed with the example data
+community_data <- read_sheet("1zEzeLF_fLPYlXqvPcCZ0r0Jmb_i7pkLywQs--5LQuZw",
+                             sheet = "PlantSamples") 
+
+ # check the top of the spreadsheet to make sure it worked
+head(community_data)
+```
+
+### Calculating the fraction of the population occupied by the dominant taxon from one sample
+
+Lets say you've pulled 6 lego bricks out of your bag, and we're interested in a dominant taxon of the Blue bricks
+
+```{r}
+# The number of bricks you pulled out of your back gives you the sample size
+sample_size <- 6 
+
+#The number of those bricks that are from the dominant taxon
+sample_number_dominant_individuals <- 1 
+
+# The fraction or proportion of the sample that is the dominant taxon
+sample_dominant_fraction <- sample_number_dominant_individuals/sample_size
+
+#display the value 
+print(sample_dominant_fraction)
+```
+
+### Calculating the fraction of the population occupied by the dominant taxon from multiple samples
+
+We need to know how many samples we've taken later on, but we also need to sum the total number of individuals per sample. The code below drops the first row ('Sample'), but sums the number of individuals
+
+```{r}
+# Create a community data object selecting only the lego colours
+# Note that we are overwriting the original community_data object with this new mutated version
+community_data <- community_data |>
+  mutate("Total" = rowSums(community_data[,-1]))
+
+```
+
+Assuming we are interested in the blue lego species, we can calculate the cumulative sum of the sample size, and the number of blue individuals from samples 1, 1+2, 1+2+3, ... etc. We can then find the relative proportion of the number of blue individuals to the total number of all individuals.
+
+```{r}
+cumulative_total <- cumsum(community_data$Total)
+cumulative_blue <- cumsum(community_data$Blue)
+proportion_blue <- cumulative_blue/cumulative_total
+```
+
+Next, we need to plot the fraction of blue to total individuals against sample size.
+
+Notice that in this ggplot code, we're not specifying `data = community_data`; this is because we're using the object `proportion_blue` that we created above on our y axis, which is not contained in the dataset.
+
+We can still call the `sample` column from `community_data` using the `$` notation.
+
+```{r}
+ggplot() +
+  geom_point(aes(x = community_data$Sample, y = proportion_blue)) + 
+  scale_x_discrete(name = "Cumulative number of samples") + 
+  scale_y_continuous(name = "Proportion blue",
+                   expand = c(0,0),
+                   limits = c(0.5,0.7)) + 
+  theme_bw()
+  
+```
+
+### Applying the Poisson distribution test to our lego data
+
+We're still interested in the distribution of our blue individuals. In this section, we're going to see if the distribution of the blue individuals differs from the Poisson distribution.
+
+The R code below is written as if for tidyverse. If you want to apply concepts using Base R, have a look at the code above.
+
+```{r}
+# Load tidyverse
+library(tidyverse)
+
+# Summarise the mean, variance, and number of quadrats for Blue individuals
+blue_summary <- community_data |>
+  summarise(mean = mean(Blue), 
+            var = var(Blue),
+            num = length((Blue)))
+print(blue_summary) 
+```
+
+Now we need to generate the expected values from the Poisson distribution:
+
+```{r}
+# We're going to generate the Poisson probability of a quadrat having between 
+# 0 - 12 plants, given the mean number of Blue individuals per quadrat
+PoissonProbs <- dpois(0:12, lambda = blue_summary$mean)
+
+# Generate the probably number of quadrats in each category (0, 1, 2, 3, etc plants per quadrat)
+expected <- PoissonProbs * blue_summary$num
+print(expected)
+
+# Quick plot of the data to see the expected distribution
+plot(PoissonProbs, xlab = 'Number of plants per quadrat', ylab='Probability of seeing this number of plants')
+```
+
+Next, we need to create a table of our observed values in the same format as our expected data, so that we can compare the observed and expected using the chi squared test.
+
+```{r}
+# We need to create an empty vector with a length of 13 (as the number of 
+# quadrats with 0 - 12 plants is a total of 13 values) 
+observed <- rep(0, 13) 
+
+
+blue_table <- table(community_data$Blue)
+# example data have 2 samples with 4 blue individuals and 4 samples with 5 blue individuals
+print(blue_table) 
+
+# This bit of code plugs the values from the table above into the empty vector
+# in the appropriate places - it adds a '2' into position 4, and '4' into 
+# position 5
+for (i in 1:length(blue_table)){ 
+  observed[as.numeric(names(blue_table)[i]) + 1] <- as.numeric(blue_table[i]) 
+  }
+
+print(observed)
+
+```
+
+We can now run the $\mu^2$ test
+
+```{r}
+chisq.test(observed, expected)
+```
+
+What do you conclude? Does our distribution significantly differ from the Poisson distribution?
+
+## Your go!
+
+Now try it yourself. Sample your Lego communities (how many times will you sample it? How many 'quadrats' will you take).
+
+What is your species of interest? How does its distribution compare to the Poisson distribution? What conclusions can we draw about how it is distributed in the environment?

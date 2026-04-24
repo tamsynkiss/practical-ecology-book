@@ -1,0 +1,182 @@
+# The workshop: *Plantago* and LEGO {#sec-lego-workshop}
+
+## *Plantago*
+
+If you haven't already, read through @sec-poisson-r-code. This walks you through some example data from 2025, including how to upload the data and how to collapse categories when your expected values for the number of individuals per quadrat are less than one.
+
+Have a go now at working through that process with this year's plantago data. Which categories do you need to collapse? Is there a difference between *P* value generated for the large and the small categories of quadrat?
+
+## LEGO
+
+Next, we'll sample your LEGO communities. Again, there will be a worked example using model data. Then, you can sample your own communities (using whatever category you have developed for a 'species') and try it yourself.
+
+### Loading in the data
+
+For this example, we are using the data contained in the [36i model data](https://docs.google.com/spreadsheets/d/1zEzeLF_fLPYlXqvPcCZ0r0Jmb_i7pkLywQs--5LQuZw/edit?gid=0#gid=0). Follow the process through, then try it yourself with your own data.
+
+In this scenario, we have a spreadsheet documenting 6 samples, where we counted the number of red, blue, green, and yellow 'plants'.
+
+```{r}
+# load the googlesheets function (if you haven't already)
+library(googlesheets4)
+# load tidyverse (if you haven't already)
+library(tidyverse)
+
+# turn off authentication (because the sheet is viewable by anyone)
+gs4_deauth() 
+
+# Read in the data from Google Sheets — update the sheet name to
+# match the survey year you want to analyse
+# If you're using your own data from your own google sheet, update the 
+# unique sheet identifier
+# Leave as it is to proceed with the example data
+community_data <- read_sheet("1zEzeLF_fLPYlXqvPcCZ0r0Jmb_i7pkLywQs--5LQuZw",
+                             sheet = "PlantSamples") |>
+  janitor::clean_names()
+
+ # check the top of the spreadsheet to make sure it worked
+head(community_data)
+```
+
+### Calculating the fraction of the population occupied by the dominant taxon from one sample
+
+Lets say you've pulled 6 LEGO bricks out of your bag, and we're interested in a taxon of Blue bricks. Maybe we already know this is likely the dominant taxon based on other existing literature or observations made in this area.
+
+```{r}
+# The number of bricks you pulled out of your back gives you the sample size
+sample_size <- 6 
+
+#The number of those bricks that are from the dominant taxon
+sample_number_dominant_individuals <- 1 
+
+# The fraction or proportion of the sample that is the dominant taxon
+sample_dominant_fraction <- sample_number_dominant_individuals/sample_size
+
+#display the value 
+print(sample_dominant_fraction)
+```
+
+### Calculating the fraction of the population occupied by the dominant taxon from multiple samples
+
+We need to know how many samples we've taken later on, but we also need to sum the total number of individuals per sample. The code below drops the first row ('Sample'), but sums the number of individuals
+
+```{r}
+# Create a community data object selecting only the lego colours
+# Note that we are overwriting the original community_data object with this new mutated version
+community_data <- community_data |>
+  mutate("Total" = rowSums(community_data[,-1]))
+
+```
+
+Assuming we are interested in the blue lego species, we can calculate the cumulative sum of the sample size, and the number of blue individuals from samples 1, 1+2, 1+2+3, ... etc. We can then find the relative proportion of the number of blue individuals to the total number of all individuals.
+
+```{r}
+cumulative_total <- cumsum(community_data$Total)
+cumulative_blue <- cumsum(community_data$blue)
+proportion_blue <- cumulative_blue/cumulative_total
+```
+
+Next, we need to plot the fraction of blue to total individuals against sample size.
+
+Notice that in this ggplot code, we're not specifying `data = community_data`; this is because we're using the object `proportion_blue` that we created above on our y axis, which is not contained in the dataset.
+
+We can still call the `sample` column from `community_data` using the `$` notation.
+
+```{r}
+ggplot() +
+  geom_point(aes(x = community_data$sample, y = proportion_blue)) + 
+  scale_x_discrete(name = "Cumulative number of samples") + 
+  scale_y_continuous(name = "Proportion blue",
+                   expand = c(0,0),
+                   limits = c(0.5,0.7)) + 
+  theme_bw()
+  
+```
+
+### Applying the Poisson distribution test to our lego data
+
+We're still interested in the distribution of our blue individuals. In this section, we're going to see if the distribution of the blue individuals differs from the Poisson distribution.
+
+```{r}
+
+# Keep only blue individuals for this analysis, and rename the column to 
+# something more descriptive
+blue_lego <- community_data |>
+  select(blue) |>
+  rename(number_of_individuals = blue)
+
+# Count the number of samples with each observed individual count
+blue_lego_summary <- blue_lego |>
+  group_by(number_of_individuals) |>
+  summarise(observed = length(number_of_individuals))
+
+# Quick visual check of the distribution
+ggplot(data = blue_lego, aes(x = number_of_individuals)) +
+  geom_bar()
+
+```
+
+Looking at our model data, we have no quadrats with zero individuals, two quadrats with 4 individuals, and four quadrats with 5 individuals.
+
+Does this match what we would expect?
+
+Next, we need to use this data to generated our *expected* number of quadrats that contain that number of individuals based on the poisson distribution. Based on the mean number of blue lego pieces per sample, how many samples do we expect to contain 4 or 5 individuals?
+
+### Poisson parameters
+
+```{r}
+
+# For a Poisson distribution, mean ≈ variance; compare these to
+# check fit
+mean <- mean(blue_lego$number_of_individuals)
+variance <- var(blue_lego$number_of_individuals)
+
+total_blue <- sum(blue_lego$number_of_individuals)
+total_samples <- length(blue_lego$number_of_individuals)
+
+# Calculate the expected number of quadrats for each count under
+# a Poisson distribution with lambda = sample mean
+blue_lego_summary <- blue_lego_summary |>
+  mutate(expected = dpois(number_of_individuals, lambda = mean) *
+           total_samples)
+```
+
+We have now generated a new column in our dataset that shows the expected number of quadrats containing that number of individuals using the poisson distribution.
+
+Unlike in our example *plantago* data (@sec-poisson-r-code), we do not need to collapse any categories, as our predicted values are both greater than 1 in each category.
+
+Lets calculate the Chi-squared value, and determine the *P* value:
+
+```{r}
+# Compute each category's contribution to the chi-squared
+# statistic
+blue_lego_summary <- blue_lego_summary |>
+  mutate(chi_sq = ((observed - expected)^2) / expected)
+
+chi_sq_statistic <- sum(blue_lego_summary$chi_sq)
+
+# Degrees of freedom = number of categories − 1 (for the test)
+# − 1 (for the estimated parameter: the mean/lambda)
+degrees_of_freedom <- nrow(blue_lego_summary) - 1 - 1
+
+# P-value: probability of observing a chi-squared statistic this
+# large or larger under the null hypothesis that counts follow a
+# Poisson distribution
+pchisq(chi_sq_statistic, df = degrees_of_freedom,
+       lower.tail = FALSE)
+
+```
+
+What do you determine from this? Is the distribution of our blue samples significantly different to the poisson distribution?
+
+Can you see how this code was modified from @sec-poisson-r-code? Could you work out how to modify it for another 'species' of LEGO colour brick? Or how to modify it for your own data?
+
+### Your turn
+
+Sample your LEGO community. Grab a handful of LEGO and count how many individuals of each species you find.
+
+Then do it again.
+
+How many samples do you think you'll need to take? As your LEGO is a closed community, you could sample the entire bag.
+
+Do your *P* values change if you alter how you've defined a 'species'?

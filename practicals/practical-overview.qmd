@@ -1,0 +1,9 @@
+---
+title: "Practicals"
+format: html
+---
+
+This chapter contains the materials associated with the various practicals carried out in the Practical Ecology module. You may find this useful to refer back to when you're planning your sampling for the Field Course portion of the module.
+
+@sec-plantago-practical 
+@sec-pitfall-practical

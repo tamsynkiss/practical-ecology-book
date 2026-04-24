@@ -1,0 +1,38 @@
+# Species Richness: R code {#sec-species-richness-R-code}
+
+## R script to accompany BIO00036I Workshop 4
+
+library(googlesheets4)
+gs4_deauth()
+
+speciesdata <- read_sheet("1zEzeLF_fLPYlXqvPcCZ0r0Jmb_i7pkLywQs--5LQuZw", range='EcologicalDiversityIndices') # update to read your data
+head(speciesdata) # check the top of the spreadsheet to make sure it worked
+
+# use the vegan library to do lots of useful species richness and diversity explorations
+
+#install.packages('vegan') # you may already have it installed
+library(vegan)
+
+# calculate observed species richness
+specnumber(speciesdata) # gives the number of species present on each row of the speciesdata matrix
+
+# the average number of species is just the mean of the number of species in each sample (on each row of the matrix)
+mean(specnumber(speciesdata))
+
+# you can calculate the cumulative species richness using specaccum
+specaccum(speciesdata)
+# Sites: this will tell you how many sites have been included
+# Richness: in the background it is doing randomisation calculations for the mean richness
+# sd: and the standard deviation for these as well
+
+# you can use this to plot the collector curve, i.e. observed cumulative species richness in the order you collected the data
+plot(specaccum(speciesdata, 'collector'))
+
+# it is interesting to add the confidence intervals based on the randomisation
+plot(specaccum(speciesdata, 'random'), ci.type='polygon', ci.lty=0, col='light blue')
+lines(specaccum(speciesdata, 'random'), ci=0) # add the mean line on top
+lines(specaccum(speciesdata, 'collector'), ci=0, col='dark grey') # add the collector curve as a grey line if you like
+
+# you can also use the vegan library to calculate a rarefaction curve:
+plot(specaccum(speciesdata, 'rarefaction'), ci=0)
+lines(specaccum(speciesdata, 'random'), ci=0, col='dark grey') # add the randomisation mean line on top - it is very similar, but not quite the same!

@@ -1,0 +1,9 @@
+---
+title: "Diversity"
+---
+
+In the last chapter, we moved on from counting individuals as members of populations, to think about collections of populations that are all present in the same place at the same time, as ecological communities. We can estimate how many species are present by observing species richness, and during that process, we notice that the number of individuals of each species differs: some are more common, and others are rarer. The composition, or make-up, of the community affects estimates of species richness, and in turn these are affected by sampling effort.
+
+In this chapter, we will explore the concept of rank abundance in more detail, using models to describe different patterns of species abundance and evenness (@sec-abundance-and-evenness) and true species richness (@sec-patterns-species-richness). We’ll then combine these ideas with ecological diversity indices (\@sec-ecological-diversity). 
+
+This is a longer chapter than usual, but your focus this week should be on understanding the higher level concepts highlighted in the summary at the beginning of each subsection (TL;DR). There will be technical support available if/when you want to start using these for your fieldwork. In the workshop this week, you’ll calculate some indices of ecological diversity and start to use a variety of metrics for diversity to compare sites and better understand why species are where they are. 

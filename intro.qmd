@@ -1,0 +1,30 @@
+# Introduction {.unnumbered}
+
+Welcome to the Practical Ecology textbook!
+
+In this textbook, you will find the content chapters for the Practical Ecology module, along with workshop activities and the dedicated R code necessary to understand and reproduce the analysis in R.
+
+## Module aims:
+
+Students who successfully complete this module will be able to:
+
+1.  Choose, use and critique sampling techniques for plant and animal populations.
+2.  Choose, use and critique analysis methods for ecological sampling data.
+3.  Interpret and discuss patterns of ecological populations and communities, with reference to theory and the environments in which they are found.
+4.  Design and evaluate experiments to sample plant and animal populations, and explain how these address ecological hypotheses.
+5.  Work in a small group to develop and carry out a field research project.
+6.  Communicate and discuss ecological fieldwork methods, results and implications to a scientific audience.
+
+## How to study this module
+
+**Taught topics** are covered through a series of online resources, practicals and workshops addressing practical and theoretical aspects of plant and animal sampling, and data analysis and interpretation for populations and communities, all within a central theme of experimental design. Each week, learning materials will be available on the VLE to introduce and contextualise the topics under consideration. Active learning by students individually and in groups will build upon structured private study and formative assessment using virtual communities, analysis in R, practical work and an online repository of class outputs. Emphasis is placed on critically interpreting and communicating the data and information gained by these techniques and understanding their limitations, and reflecting on students' own development as researchers and practitioners in ecology.
+
+**During the field course**, the students will have the opportunity to discover more directly how organisms live in their environment, and to develop and execute an ecological investigation in small groups for 5 days. After introduction to a range of habitats, the students, under the supervision of a member of staff, will be responsible for (1) defining the aim of their study, (2) coming up with a sensible scientific design in one of the available sites, (3) carrying out the survey or experiment, and (4) processing the samples and analysing and communicating the results.
+
+The first part of the semester will walk you through ideas relating to the following three questions:
+
+-   How can we collect data about the presence and abundance of plants and animals?
+-   Why are organisms present in specific environments?
+-   What is it about species, populations and environments that shapes communities?
+
+We'll cover things that don't move (e.g. most plants), things that do move (e.g. most animals), commonness and rarity, species richness, ecological diversity indices, community similarity, and relating communities to their environments.
