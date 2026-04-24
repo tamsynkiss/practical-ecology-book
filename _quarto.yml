@@ -65,8 +65,8 @@ format:
     lightbox:
       match: auto
       loop: false
-  pdf:
-    documentclass: scrreprt
+  # pdf:
+  #   documentclass: scrreprt
 
 editor: visual
 

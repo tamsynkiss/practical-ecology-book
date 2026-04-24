@@ -74,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -332,18 +303,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#log-series-alpha" id="toc-log-series-alpha" class="nav-link" data-scroll-target="#log-series-alpha"><span class="header-section-number">16.2.1</span> Log series alpha</a></li>
   <li><a href="#case-study-barro-colorado-island" id="toc-case-study-barro-colorado-island" class="nav-link" data-scroll-target="#case-study-barro-colorado-island"><span class="header-section-number">16.2.2</span> Case study: Barro Colorado Island</a></li>
-  <li><a href="#non-parametric-diversity-indices" id="toc-non-parametric-diversity-indices" class="nav-link" data-scroll-target="#non-parametric-diversity-indices"><span class="header-section-number">16.2.3</span> Non-parametric diversity indices</a></li>
-  <li><a href="#simpsons-index" id="toc-simpsons-index" class="nav-link" data-scroll-target="#simpsons-index"><span class="header-section-number">16.2.4</span> Simpson’s index</a></li>
-  <li><a href="#shannons-index" id="toc-shannons-index" class="nav-link" data-scroll-target="#shannons-index"><span class="header-section-number">16.2.5</span> Shannon’s index</a></li>
   </ul></li>
-  <li><a href="#calculating-confidence-intervals" id="toc-calculating-confidence-intervals" class="nav-link" data-scroll-target="#calculating-confidence-intervals"><span class="header-section-number">16.3</span> Calculating confidence intervals</a>
-  <ul class="collapse">
-  <li><a href="#case-study-neotropical-bats" id="toc-case-study-neotropical-bats" class="nav-link" data-scroll-target="#case-study-neotropical-bats"><span class="header-section-number">16.3.1</span> Case study: Neotropical bats</a></li>
-  <li><a href="#berger-parker-index" id="toc-berger-parker-index" class="nav-link" data-scroll-target="#berger-parker-index"><span class="header-section-number">16.3.2</span> Berger Parker index</a></li>
-  </ul></li>
-  <li><a href="#what-are-you-investigating" id="toc-what-are-you-investigating" class="nav-link" data-scroll-target="#what-are-you-investigating"><span class="header-section-number">16.4</span> What are you investigating?</a></li>
-  <li><a href="#diversity-across-spatial-scales" id="toc-diversity-across-spatial-scales" class="nav-link" data-scroll-target="#diversity-across-spatial-scales"><span class="header-section-number">16.5</span> Diversity across spatial scales</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">16.6</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -387,7 +347,7 @@ window.Quarto = {
 </ul>
 <section id="log-series-alpha" class="level3" data-number="16.2.1">
 <h3 data-number="16.2.1" class="anchored" data-anchor-id="log-series-alpha"><span class="header-section-number">16.2.1</span> Log series alpha</h3>
-<p>One of the most common of the parametric diversity indices is the log series alpha. Recall that the log series is a series of calculations that estimates the number of species in our community that are represented by one individual, two individuals, three individuals… all the way up to n individuals. Alpha is approximately the number of species with 1 individual, i.e.&nbsp;the number of rare species. In the example of butterflies on Buru, Indonesia (Hill et al.&nbsp;1995), the alpha value for the unlogged site was 7.94, slightly higher than for the logged site, which was 6.99. There were also more individuals for the same effort of sampling in the unlogged site than in the logged site, and there are more total species in the unlogged than the logged. Based on these calculations, logging has clearly had an effect on the community, leading to fewer individuals and fewer species present.</p>
+<p>One of the most common of the parametric diversity indices is the log series alpha. Recall that the log series (<a href="diversity-patterns-of-abundance-and-evenness.html" class="quarto-xref"><span>Chapter 14</span></a>) is a series of calculations that estimates the number of species in our community that are represented by one individual, two individuals, three individuals… all the way up to <em>n</em> individuals. Alpha is approximately the number of species with 1 individual, i.e.&nbsp;the number of rare species. In the example of butterflies on Buru, Indonesia (Hill et al.&nbsp;1995), the alpha value for the unlogged site was 7.94, slightly higher than for the logged site, which was 6.99. There were also more individuals for the same effort of sampling in the unlogged site than in the logged site, and there are more total species in the unlogged than the logged. Based on these calculations, logging has clearly had an effect on the community, leading to fewer individuals and fewer species present.</p>
 </section>
 <section id="case-study-barro-colorado-island" class="level3" data-number="16.2.2">
 <h3 data-number="16.2.2" class="anchored" data-anchor-id="case-study-barro-colorado-island"><span class="header-section-number">16.2.2</span> Case study: Barro Colorado Island</h3>
@@ -396,129 +356,27 @@ window.Quarto = {
 <div id="fig-barro-colorado-island" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barro-colorado-island-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="data-image/barro-colorado-island.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;16.1: "><img src="data-image/barro-colorado-island.png" class="img-fluid figure-img"></a>
+<a href="data-image/barro-colorado-island.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;16.1: There is no clear relationship between the number of individual trees in a Barro Colorado Island (BCI) plot (tree density; x axis) and the number of species found there. BCI is located in Panama, west of the Panama Canal."><img src="data-image/barro-colorado-island.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-barro-colorado-island-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16.1
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-barro-colorado-island-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.1: There is no clear relationship between the number of individual trees in a Barro Colorado Island (BCI) plot (tree density; x axis) and the number of species found there. BCI is located in Panama, west of the Panama Canal.
 </figcaption>
 </figure>
 </div>
-<p>But which of these plots is the most diverse? We can’t just assume it’s plot 19 with the most species (<a href="#fig-barro-colorado-island" class="quarto-xref">Figure&nbsp;<span>16.1</span></a>), because the tree densities also vary. How do these plots compare if we use the log series alpha to measure diversity through the lens of rare species abundance? There is a strong, positive relationship between the number of species and the log alpha estimate of a site (<a href="#fig-bci-log-series-alpha" class="quarto-xref">Figure&nbsp;<span>16.2</span></a>). This suggests that sites with greater species richness also have more rare species. However, there is a lot of variation: sites with the same observed species richness may still differ in our log series alpha estimate of diversity.</p>
-<div id="fig-bci-log-series-alpha" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>But which of these plots is the most diverse? We can’t just assume it’s plot 19 with the most species (<a href="#fig-barro-colorado-island" class="quarto-xref">Figure&nbsp;<span>16.1</span></a>), because the tree densities also vary. How do these plots compare if we use the log series alpha to measure diversity through the lens of rare species abundance? There is a strong, positive relationship between the number of species and the log alpha estimate of a site (<a href="#fig-bci-log-alpha" class="quarto-xref">Figure&nbsp;<span>16.2</span></a>). This suggests that sites with greater species richness also have more rare species. However, there is a lot of variation: sites with the same observed species richness may still differ in our log series alpha estimate of diversity.</p>
+<div id="fig-bci-log-alpha" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-bci-log-series-alpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="data-image/bci-log-series-alpha.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;16.2: "><img src="data-image/bci-log-series-alpha.png" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-bci-log-alpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="data-image/bci-log-series.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;16.2: "><img src="data-image/bci-log-series.png" class="img-fluid figure-img"></a></p>
+
+
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-bci-log-series-alpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-bci-log-alpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16.2
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="non-parametric-diversity-indices" class="level3" data-number="16.2.3">
-<h3 data-number="16.2.3" class="anchored" data-anchor-id="non-parametric-diversity-indices"><span class="header-section-number">16.2.3</span> Non-parametric diversity indices</h3>
-<p>Non-parametric diversity indices, in the same manner as non-parametric statistical tests, make fewer assumptions about the species abundance distribution. They can be thought of as a weighted sum of the relative abundance of different species.</p>
-<p>A simple non-parametric measure of ecological diversity is a measure of the relative abundance of different species <span class="math inline">\(p_i = {n_i \over N}\)</span>, where <span class="math inline">\(n_i\)</span> is the number of individuals in species <em>i</em> and <em>N</em> is the total number of individuals. This can then be weighted according to some proportion of the rarity of a species, and this creates a diversity index value. Non-parametric diversity indices make few assumptions about the data; they do not have to be normally distributed, but still must be able to be ordered in a meaningful rank order.</p>
-</section>
-<section id="simpsons-index" class="level3" data-number="16.2.4">
-<h3 data-number="16.2.4" class="anchored" data-anchor-id="simpsons-index"><span class="header-section-number">16.2.4</span> Simpson’s index</h3>
-<p>Simpson’s diversity index asks, if you sample an individual from the community, what is the probability that a second individual sampled will be a member of the same species? To calculate <em>D</em>, we take the relative abundance of each species <span class="math inline">\(p_i\)</span> (the probability of selecting an individual of species <em>i</em>), square it (i.e.&nbsp;multiply by the probability of selecting a second individual of species <em>i</em>), and then take the sum (because the first individual can be any species):</p>
-<p><span class="math display">\[
-D = \sum p_i~^2
-\]</span></p>
-<p>This produces a diversity index that works in the opposite direction to what you might expect: when diversity is low (few, dominant species) the probability of picking two individuals from the same species is high because there are not many rare individuals around. When diversity is high, <em>D</em> will give a low value because you are unlikely to consecutively pick two individuals from the same species. To resolve this, typically we use 1 - <em>D</em> which is the complementary Simpson’s index. Alternatively, we take the reiciprocal, 1/<em>D</em>, which is the inverse Simpson’s index. These indices both ‘correct’ the value so that we get a higher value for a more diverse or even community. Bear this in mind when reading the literature and make sure you know which one is being used.</p>
-<p>In practice, we might want to use an adjusted calculation for Simpson’s index to account for small sample sizes. This is similar to the different versions for variance, for the Bailey correction to the Lincoln-Peterson index, etc. In this case, we use the equation:</p>
-<p><span class="math display">\[
-D = \sum ({n_i \over N}) ({n_i -1 \over N-1})
-\]</span> This means that the probability of picking the second individual is adjusted for the fact that the first individual of that species is no longer available for selection, and the whole population has gone down by one.</p>
-</section>
-<section id="shannons-index" class="level3" data-number="16.2.5">
-<h3 data-number="16.2.5" class="anchored" data-anchor-id="shannons-index"><span class="header-section-number">16.2.5</span> Shannon’s index</h3>
-<p>Simpson’s index gets used slightly less frequently than the Shannon’s index (also called the Shannon-Weiner, Shannon-Weaver, or the Shannon Entropy index). Initially, Shannon devised this pattern to look at strings of text. Instead of multiplying the proportion of each species by itself, as in Simpson’s index, it is multiplied by the log of itself.</p>
-<p><span class="math display">\[
-H = - \sum p_i~ln~(p_i)
-\]</span></p>
-<p>It is usually the natural log used here: rather than <span class="math inline">\(log_{10}\)</span>, “ln” is log to the base e.</p>
-<p>Shannon’s index usually gives a value between 1.5 and 3.5, and a very large sample may exceed 4. You would need a sample of over one hundred thousand individuals to get an H above 5. The higher the value of the Shannon index, the more diverse and even the community is, and high values only occur when there are many species and many individuals.</p>
-</section>
-</section>
-<section id="calculating-confidence-intervals" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="calculating-confidence-intervals"><span class="header-section-number">16.3</span> Calculating confidence intervals</h2>
-<p>Non-parametric tests can’t use estimates from underlying distributions to create a confidence interval, so other approaches are to gain some sort of estimate of how sure we are of these values, and remove sampling bias. Calculating confidence intervals for Simpson’s and Shannon’s diversity indices are usually done by methods of repeat sampling, usually called jack-knifing or bootstrapping.</p>
-<p>By performing repeated samples of subsamples, we can estimate the standard error of the non-parametric index. In bootstrapping, this is done by subsampling the data x times and calculating the diversity index from the subsample (<a href="#fig-bootstrapping-process" class="quarto-xref">Figure&nbsp;<span>16.3</span></a>). Jack-knifing is a similar process, but calculates the statistic x times, each time removing one individual observation</p>
-<div id="fig-bootstrapping-process" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-bootstrapping-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="data-image/bootstrapping-process.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;16.3: Bootstrapping is a process whereby subsamples of the original dataset are selected, and statistics calculated repeatedly to generate distribution of possible values for that statistic. This provides a picture of how variable the statistic might be, given the variation present in the original sample, and allows us to calculate confidence intervals and standard errors."><img src="data-image/bootstrapping-process.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bootstrapping-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16.3: Bootstrapping is a process whereby subsamples of the original dataset are selected, and statistics calculated repeatedly to generate distribution of possible values for that statistic. This provides a picture of how variable the statistic might be, given the variation present in the original sample, and allows us to calculate confidence intervals and standard errors.
-</figcaption>
-</figure>
-</div>
-<section id="case-study-neotropical-bats" class="level3" data-number="16.3.1">
-<h3 data-number="16.3.1" class="anchored" data-anchor-id="case-study-neotropical-bats"><span class="header-section-number">16.3.1</span> Case study: Neotropical bats</h3>
-<p>Rex et al.&nbsp;(2008) used mist nets set overnight to capture bats in three regions:</p>
-<ol type="A">
-<li>Primary rainforest (190 - 270 m above sea level (a.s.l) ) in eastern Ecuador, 0°S;</li>
-<li>Protected forest in Costa Rica (30 - 100 m a.s.l.), 10°N;</li>
-<li>Old growth/successional forest next to pasture land (900 – 1200 m a.s.l.) in southern Ecuador, 4°S.</li>
-</ol>
-<p>At each region they had 10 one ha plots within a 1.5 km radius, covering all land-cover types. The rank abundance plots all show differences in species richness and evenness (<a href="#fig-neotropical-bats" class="quarto-xref">Figure&nbsp;<span>16.4</span></a>). Simpson’s (1/<em>D</em>) and Shannon’s (<em>H</em>) indices helped to interpret the rank abundance plots: with standard errors generated through bootstrapping, it was possible to say that diversity was significantly lower in the high altitude, old growth, successional forest (C) compared to both the northern, protected area (B) or the equatorial primary rainforest (A), but areas A and B were not significantly different from each other.</p>
-<p>The literature suggests that species richness in bats declines with latitude, and with increasing altitude. However, this pattern may also be associated with the levels of disturbance in different habitats, and we are interested in evenness of communities as well as species richness. The diversity index gives us these two things simultaneously, and it is possible for two communities with different rank abundance plots to end up with the same diversity index value, and for similarly shaped plots to have different diversity indices. So how might we separate out the species richness information from the evenness information in this one value?</p>
-<p>In a species abundance plot, evenness is represented by how flat the middle species are: i.e.&nbsp;the species that are all similar in abundance but increasing in rarity. If there are lots of relatively common species then there is a relatively even community, while lots of rare species and a few very common species produces a very uneven community.</p>
-<p>One way to quantify this is to determine what the maximum possible evenness could be with your calculated diversity, and look at the ratio of your diversity index that you actually get against that maximum possible. Once again we are comparing the observed (our calculated diversity) versus the expected (under specific conditions). Maximum evenness happens when all species have equal abundance: if you had 100 individuals with 10 species, there would be 10 individuals assigned to each species. The process of creating this ratio gives us a value of between 0 and 1, where 1 means that the species have matched that ideal evenness, and zero when they are a long way from that ideal evenness.</p>
-<p>Rex et al.&nbsp;(2008) calculated the evenness ratios for Shannon’s and Simpson’s indices for their neotropical bats (<a href="#fig-neotropical-bats" class="quarto-xref">Figure&nbsp;<span>16.4</span></a>), and found that the bat assemblages at lower elevation (A and B), between 30 and 270 metres above sea level, have similar evenness, despite the changes in latitude. This implies that altitude may be the main drivers of differences in the bat communities between these regions, rather than latitude. This understanding of the evenness changes the interpretation of the data compared to when we considered diversity index data alone. Evenness, as a ratio of the possible maximum, is therefore a major factor to consider when describing communities.</p>
-<div id="fig-neotropical-bats" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-neotropical-bats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="data-image/neotropical-bats-case-study.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;16.4: "><img src="data-image/neotropical-bats-case-study.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-neotropical-bats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16.4
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="berger-parker-index" class="level3" data-number="16.3.2">
-<h3 data-number="16.3.2" class="anchored" data-anchor-id="berger-parker-index"><span class="header-section-number">16.3.2</span> Berger Parker index</h3>
-<p>To reduce evenness to its most basic level, we can ask: what proportion of the individuals in a community are represented by the commonest species? This is known as a dominance index. In an even community this will be low, and in a dominated community it will be high – it will be 1 if the commonest species is the only species you have in your sample.</p>
-<p>The Berger-Parker index is calculated from the number of individuals in the sample (<em>N</em>), and the number of individuals in the most abundant species (<span class="math inline">\(N_{max}\)</span>):</p>
-<p><span class="math display">\[
-d = {N_{max} \over N}
-\]</span></p>
-<p>As with the other non-parametric indices, you have to take the reciprocal in order to get the index working the ‘right’ way around: <em>1/d</em> gives an increase with an increase in diversity (reduction in dominance).</p>
-</section>
-</section>
-<section id="what-are-you-investigating" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="what-are-you-investigating"><span class="header-section-number">16.4</span> What are you investigating?</h2>
-<p>When you are choosing measures of diversity, you should know in advance what aspect of biodiversity is being investigated, and why. There are some challenges that can come with converting rank abundance plots into a single diversity index value. However, in order to work out what is going on in your community you need to have a way to condense that information down. It is simply not feasible to look at hundreds of rank abundance plots.</p>
-<p>These are good starting places for your experimental design and analysis plans: * If species richness: Shannon, rarefaction * If heterogeneity: log series α or Simpson’s index is appropriate. * If evenness: one of the evenness indices. * If dominance: Simpson, or Berger-Parker is simple and easily interpretable.</p>
-</section>
-<section id="diversity-across-spatial-scales" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="diversity-across-spatial-scales"><span class="header-section-number">16.5</span> Diversity across spatial scales</h2>
-<p>Diversity of a single site, quadrat or area is called the point or alpha (<span class="math inline">\(\alpha\)</span>) diversity. However, species presence and relative abundance, or diversity, changes across spatial scales. We also need the concepts of gamma (<span class="math inline">\(\gamma\)</span>) diversity, diversity at the landscape or regional scale, and beta (<span class="math inline">\(\beta\)</span>) diversity, which tells us how smaller sites within that region differ from each other. There are different ways to calculate <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> diversity, but usually <span class="math inline">\(\gamma = \alpha + \beta\)</span>.</p>
-<p>We will work through a simple example to illustrate how this helps to quantify diversity at different scales. <span class="quarto-unresolved-ref">?fig-bird-sites</span> shows four sites where five individuals from local bird communities have been counted. Using observed species richness as a simple index of diversity, we see that sites 1 and 3 (in region X) have five species, and sites 2 and 4 (in region Y) have 3 species. The alpha diversity is therefore almost twice as high for sites in region X (<span class="math inline">\(\alpha\)</span> = 5) compared to sites in region Y (<span class="math inline">\(\alpha\)</span> = 3).</p>
-<p>Beta diversity represents the difference in the composition or the turnover between multiple sites in the same region. It asks the question, how many species that are present in one site are also present in another site within the same region? In region X, the same five species are present at sites 1 and 3. Although the alpha diversity is high, there is no turnover between sites. In contrast, in region Y there are no shared species between sites 2 and 4.</p>
-<div id="fig-bird-diversity" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-bird-diversity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="data-image/bird-species-diversity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;16.5: "><img src="data-image/bird-species-diversity.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-bird-diversity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16.5
-</figcaption>
-</figure>
-</div>
-<p>One of the ways to calculate the beta diversity is to take the number of species in a region, and divide that by the mean alpha diversity for the region. This gives an estimate of the turnover in a region. This would give us <span class="math inline">\(\beta\)</span> = 5/5 = 1 for region X, but <span class="math inline">\(\beta\)</span> = 6/3 = 2 for region Y is double that.</p>
-<p>The gamma diversity is a measure of the total landscape or regional richness, assessed across all sites within that landscape. It is a combination of the alpha diversity and the beta diversity. For our example, region X has a high alpha diversity (5) but a low turnover (1), which gives us a gamma diversity value of 6. Region Y has a lower alpha diversity (3) but a higher turnover (2), giving us a gamma diversity value of 5.</p>
-<p>Each of these scales tells us different things about the regions that we’ve been sampling, but as with the alpha diversity that we created from our condensed rank abundance plots, they help us to condense complex levels of information about a species composition into single points of information that we can then start to compare, whether that’s across sites, regions, or landscapes. We might conclude that region X is marginally more diverse at the landscape scale, or we might conduct bootstrapping and more intensive sampling and conclude that they are similarly diverse but with different spatial distributions. Our next experimental and observational steps will depend on the question that we are really interested in answering.</p>
-</section>
-<section id="references" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="references"><span class="header-section-number">16.6</span> References</h2>
-<p>Rex K, Kelm DH, Wiesner K, Kunz TH, Voigt CC (2008), Species richness and structure of three Neotropical bat assemblages. Biological Journal of the Linnean Society, 94: 617-629.</p>
-
-
 </section>
 
 </main> <!-- /main -->
