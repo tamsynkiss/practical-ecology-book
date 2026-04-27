@@ -1,0 +1,15 @@
+---
+title: "Experimental design"
+---
+
+So far in Practical Ecology, you have considered techniques for collecting population data (presence, abundance) on plants and animals, and explored ideas about how to analyse and interpret data about communities. In this chapter, we will think about how to formulate experiments. This is a process that needs us to start at the end: what is it that you want to know by the final concluding paragraph of your scientific paper? Working backwards from there, what kind of analysis could give you that sort of information? What sort of data do you need to collect in order to do that analysis? From there, you can design an experiment to collect data to answer a good question. 
+
+In this module, you are learning how to:
+1.  Formulate a good question and testable hypothesis;
+2.  Design and carry out an appropriate study to answer the question;
+3.  Collect and analyse the experimental or observational data;
+4.  Interpret and communicate the results for a scientific audience.
+
+In this chapter, we will define and explain the difference between manipulative and observational studies (@sec-experimental-design-intro), and develop good experimental designs to address ecological and environmental hypotheses (Section 6.2). In the workshop you will play the hypothesis game to design testable hypotheses for different scenarios, and consider a range of case study experiments in the context of resilience to unexpected circumstances in the field.
+
+

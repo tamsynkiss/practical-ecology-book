@@ -295,14 +295,18 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Experimental design</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../practicals/practical-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practicals</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../practicals/plantago-practical.html" class="sidebar-item-text sidebar-link">
@@ -372,15 +376,14 @@ window.Quarto = {
 <div id="fig-representative-species-accumulation-curves" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-representative-species-accumulation-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="data-image/representative-species-accumulation-curves.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;15.1: Two representative species accumulation curves, with the number of quadrats representing the sampling effort on the x axis, and the cumulative number of species on the y axis. Communities with more species will ultimately attain more height on the curve. More heterogeneity between samples will make for a steeper slope. A larger average number of species per sample may affect the slope and height of the curve. Sampling effort affects which one ‘looks’ more species rich."><img src="data-image/representative-species-accumulation-curves.png" class="img-fluid figure-img"></a>{fig-alt = “Two representative species accumulation curve, with the number of quadrats representing the sampling effort on the x axis, and the cumulative number of species on the y axis.</p>
-<p>Communities with more species will attain more height on the curve. More heterogeneity between samples will make for a steeper slope. And a larger average number of species per sample may affect the slope and height of the curve.”}</p>
+<a href="data-image/representative-species-accumulation-curves.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;15.1: Two representative species accumulation curves, with the number of quadrats representing the sampling effort on the x axis, and the cumulative number of species on the y axis. Communities with more species will ultimately attain more height on the curve. More heterogeneity between samples will make for a steeper slope. A larger average number of species per sample may affect the slope and height of the curve. Sampling effort affects which one ‘looks’ more species rich."><img src="data-image/representative-species-accumulation-curves.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-representative-species-accumulation-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.1: Two representative species accumulation curves, with the number of quadrats representing the sampling effort on the x axis, and the cumulative number of species on the y axis. Communities with more species will ultimately attain more height on the curve. More heterogeneity between samples will make for a steeper slope. A larger average number of species per sample may affect the slope and height of the curve. Sampling effort affects which one ‘looks’ more species rich.
 </figcaption>
 </figure>
 </div>
-<p>One way to mitigate for this is to estimate ‘true’ species richness from our rank abundance data: what is the asymptotic value, or the point at which the curve plateaus. There are a number of estimators for true species richness: * <strong>Parametric methods</strong> fit a model to species rank abundance data, and model the species accumulation curve from this data. * <strong>Non-parametric methods</strong> use estimators known to converge rapidly towards the asymptote, by applying different correction factors depending on the rarity of species within the sample data.</p>
+<p>One way to mitigate for this is to estimate ‘true’ species richness from our rank abundance data: what is the asymptotic value, or the point at which the curve plateaus. There are a number of estimators for true species richness: - <strong>Parametric methods</strong> fit a model to species rank abundance data, and model the species accumulation curve from this data. - <strong>Non-parametric methods</strong> use estimators known to converge rapidly towards the asymptote, by applying different correction factors depending on the rarity of species within the sample data.</p>
 <p>The log series model that you encountered in <a href="diversity-patterns-of-abundance-and-evenness.html" class="quarto-xref"><span>Chapter 14</span></a> is an example of a parametric method: the equation calculates the expected number of species with <em>n</em> individuals, which allows an estimate of how many species there are in total.</p>
 <p>Non-parametric methods use information about the species that have been observed to infer how many species have not been observed. We are not going to go into mathematical details about any of these now, but you can read more about them in the workshop case studies. They follow the same characteristic equation, where predicted species richness started with the observed species richness, and is adjusted based on a function of the relative abundance of species, often focusing on the number of rare species (e.g.&nbsp;those with only 1 or 2 individuals), and the number of sites, because the more sampling you have done, the more likely it is that you’ve seen everything.</p>
 <p>The following three equations follow the same approximate formula: Predicted species richness (<span class="math inline">\(S_p\)</span>) is equal to the observed species richness (<span class="math inline">\(S_0\)</span>) plus a correction term.</p>
@@ -405,10 +408,10 @@ S_p = S_0 + \sum^{S_0}_{i = 1} (1 - {Y_i \over N})^N
 <div id="fig-bini-accumulation-curves" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bini-accumulation-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="data-image/bini-accumulation-curves.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;15.2: "><img src="data-image/bini-accumulation-curves.png" class="img-fluid figure-img"></a>
+<a href="data-image/bini-accumulation-curves.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;15.2: Species accumulation curve from intensive lagoon sampling, pooling data across all 20 lagoons and showing three estimates for total species richness approaching 50 species (reproduced from Fig. 4, Bini et al.&nbsp;2001)."><img src="data-image/bini-accumulation-curves.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-bini-accumulation-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.2
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bini-accumulation-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15.2: Species accumulation curve from intensive lagoon sampling, pooling data across all 20 lagoons and showing three estimates for total species richness approaching 50 species (reproduced from Fig. 4, Bini et al.&nbsp;2001).
 </figcaption>
 </figure>
 </div>

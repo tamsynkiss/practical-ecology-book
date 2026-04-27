@@ -50,6 +50,7 @@ book:
         - diversity/diversity-patterns-of-abundance-and-evenness.qmd
         - diversity/diversity-patterns-species-richness.qmd
         - diversity/diversity-ecological-diversity.qmd
+    - part: experimental-design/experimental-design-overview.qmd
     - part: practicals/practical-overview.qmd
       chapters: 
         - practicals/plantago-practical.qmd
