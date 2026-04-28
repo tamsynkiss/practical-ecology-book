@@ -76,9 +76,16 @@ By performing repeated samples of subsamples, we can estimate the standard error
 
 ::: {@fig-bootstrap}
 ```{mermaid}
-flowchart LR
-A((Original Sample)) ==> B(Bootstrap Sample 2)
-A((Original Sample)) ==> C(Bootstrap Sample 2)
-A((Original Sample)) ==> D(Bootstrap Sample 3)
+echo: false
+flowchart LR;
+A((Original Sample)) ==> B(Bootstrap Subsample 2);
+A((Original Sample)) ==> C(Bootstrap Subsample 2);
+A((Original Sample)) ==> D(Bootstrap Subsample 3);
+B ==> E[Bootstrap Statistic 1];
+c ==> F[Bootstrap Statistic 2];
+D ==> G[Bootstrap Statistic 3];
+A ==> H[Sample Statistic];
+E & F & G ==> I[Bootstrap distribution]
+
 ```
 :::
