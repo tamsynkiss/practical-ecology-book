@@ -479,20 +479,25 @@ H = -\sum {p_i}~ln~(p_i)
 <section id="calculating-confidence-intervals" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="calculating-confidence-intervals"><span class="header-section-number">16.3</span> Calculating confidence intervals</h2>
 <p>Non-parametric tests can’t use estimates from underlying distributions to create a confidence interval, so other approaches are to gain some sort of estimate of how sure we are of these values, and remove sampling bias. Calculating confidence intervals for Simpson’s and Shannon’s diversity indices are usually done by methods of repeat sampling, usually called jack-knifing or bootstrapping.</p>
-<p>By performing repeated samples of subsamples, we can estimate the standard error of the non-parametric index. In bootstrapping, this is done by subsampling the data x times and calculating the diversity index from the subsample (Figure 5.15). Jack-knifing is a similar process, but calculates the statistic x times, each time removing one individual observation from the set of values. In both cases, the set of diversity indices that are produced can be used to infer a distribution.</p>
+<p>By performing repeated samples of subsamples, we can estimate the standard error of the non-parametric index. In bootstrapping, this is done by subsampling the data <em>x</em> times and calculating the diversity index from the subsample (Figure 5.15). Jack-knifing is a similar process, but calculates the statistic <em>x</em> times, each time removing one individual observation from the set of values. In both cases, the set of diversity indices that are produced can be used to infer a distribution.</p>
+<div class="{@fig-bootstrap}">
 <div class="cell" data-layout-align="default">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>id1((Original Sample)) ==&gt; id2(Bootstrap sample 1) &amp; id3(Bootstrap sample 2) &amp; id3(Bootstrap sample ")</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>A((Original Sample)) ==&gt; B(Bootstrap Sample 2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A((Original Sample)) ==&gt; C(Bootstrap Sample 2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>A((Original Sample)) ==&gt; D(Bootstrap Sample 3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-id1((Original Sample)) ==&gt; id2(Bootstrap sample 1) &amp; id3(Bootstrap sample 2) &amp; id3(Bootstrap sample ")
-
+A((Original Sample)) ==&gt; B(Bootstrap Sample 2)
+A((Original Sample)) ==&gt; C(Bootstrap Sample 2)
+A((Original Sample)) ==&gt; D(Bootstrap Sample 3)
 </pre>
 </div>
 <p></p></figure><p></p>
+</div>
 </div>
 </div>
 </div>

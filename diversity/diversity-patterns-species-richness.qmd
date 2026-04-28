@@ -6,7 +6,7 @@ The take home message from @sec-patterns-species-richness is that we don’t hav
 
 ## Observed versus true species richness
 
-Species abundance models help us understand patterns of relative abundance: how individuals are distributed among species. Species richness estimates tell us how many species are present. In @sec-species-richness-overview, we established that species accumulation curves change with commonness and rarity, and with sampling effort. This is in part because as sampling effort increases, the curve begins to encapsulate different processes and the scales that these occur at. Patterns of species accumulation depend on a range of factors such as the average species richness of a single sample and the community at large, and the variability among samples, and among communities.
+Species abundance models help us understand patterns of relative abundance: how individuals are distributed among species. Species richness estimates tell us how many species are present. In the species richness chapters, we established that species accumulation curves change with commonness and rarity, and with sampling effort. This is in part because as sampling effort increases, the curve begins to encapsulate different processes and the scales that these occur at. Patterns of species accumulation depend on a range of factors such as the average species richness of a single sample and the community at large, and the variability among samples, and among communities.
 
 Two communities can differ in many respects, which may affect how we view their respective species richness, and the shape of the species accumulation curve (@fig-representative-species-accumulation-curves). In practice, this means that it’s important to consider how a sampling protocol may affect the answer to the research question. For example, expressing sampling effort as the number of quadrats used may present a slightly different curve to expressing sampling effort as the number of plant individuals sampled.
 
@@ -16,9 +16,7 @@ Two communities can differ in many respects, which may affect how we view their 
 Two representative species accumulation curves, with the number of quadrats representing the sampling effort on the x axis, and the cumulative number of species on the y axis. Communities with more species will ultimately attain more height on the curve. More heterogeneity between samples will make for a steeper slope. A larger average number of species per sample may affect the slope and height of the curve. Sampling effort affects which one ‘looks’ more species rich.
 :::
 
-One way to mitigate for this is to estimate ‘true’ species richness from our rank abundance data: what is the asymptotic value, or the point at which the curve plateaus. There are a number of estimators for true species richness: 
--   **Parametric methods** fit a model to species rank abundance data, and model the species accumulation curve from this data. 
--   **Non-parametric methods** use estimators known to converge rapidly towards the asymptote, by applying different correction factors depending on the rarity of species within the sample data.
+One way to mitigate for this is to estimate ‘true’ species richness from our rank abundance data: what is the asymptotic value, or the point at which the curve plateaus. There are a number of estimators for true species richness: - **Parametric methods** fit a model to species rank abundance data, and model the species accumulation curve from this data. - **Non-parametric methods** use estimators known to converge rapidly towards the asymptote, by applying different correction factors depending on the rarity of species within the sample data.
 
 The log series model that you encountered in @sec-abundance-and-evenness is an example of a parametric method: the equation calculates the expected number of species with *n* individuals, which allows an estimate of how many species there are in total.
 
@@ -45,7 +43,7 @@ $$ Where: $Y_i$ is the number of individuals in species *i*
 Species richness estimators in action can be quite powerful. Bini et al. (2001) conducted a study of aquatic macrophytes in a South American floodplain, sampling 20 lagoons in October and November of 1999 to estimate the species richness of three regions. The researchers intensively sampled these enclosed lagoons, and were fairly sure that there were fifty species in total (@fig-bini-accumulation-curves).
 
 ::: {#fig-bini-accumulation-curves}
-![](data-image/bini-accumulation-curves.png){fig-alt = "Cumulative number of species found from intensive lagoon sampling, with data from all areas pooled. Between 10 and 25 species are estimated to be present after looking at any one of the lagoons, and this range decreases to \~45 species as the effort increases towards 20 lagoons."} 
+![](data-image/bini-accumulation-curves.png){fig-alt = "Cumulative number of species found from intensive lagoon sampling, with data from all areas pooled. Between 10 and 25 species are estimated to be present after looking at any one of the lagoons, and this range decreases to \~45 species as the effort increases towards 20 lagoons."}
 
 Species accumulation curve from intensive lagoon sampling, pooling data across all 20 lagoons and showing three estimates for total species richness approaching 50 species (reproduced from Fig. 4, Bini et al. 2001).
 :::
