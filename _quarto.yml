@@ -51,6 +51,9 @@ book:
         - diversity/diversity-patterns-species-richness.qmd
         - diversity/diversity-ecological-diversity.qmd
     - part: experimental-design/experimental-design-overview.qmd
+      chapters:
+        - experimental-design/experimental-design-introduction.qmd
+        - experimental-design/key-aspects-experimental-design.qmd
     - part: practicals/practical-overview.qmd
       chapters: 
         - practicals/plantago-practical.qmd
