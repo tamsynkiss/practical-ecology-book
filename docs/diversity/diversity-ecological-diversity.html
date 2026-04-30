@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -378,7 +343,14 @@ window.Quarto = {
   <li><a href="#simpsons-index" id="toc-simpsons-index" class="nav-link" data-scroll-target="#simpsons-index"><span class="header-section-number">16.2.4</span> Simpson’s index</a></li>
   <li><a href="#shannons-index" id="toc-shannons-index" class="nav-link" data-scroll-target="#shannons-index"><span class="header-section-number">16.2.5</span> Shannon’s index</a></li>
   </ul></li>
-  <li><a href="#calculating-confidence-intervals" id="toc-calculating-confidence-intervals" class="nav-link" data-scroll-target="#calculating-confidence-intervals"><span class="header-section-number">16.3</span> Calculating confidence intervals</a></li>
+  <li><a href="#calculating-confidence-intervals" id="toc-calculating-confidence-intervals" class="nav-link" data-scroll-target="#calculating-confidence-intervals"><span class="header-section-number">16.3</span> Calculating confidence intervals</a>
+  <ul class="collapse">
+  <li><a href="#case-study-neotropical-bats" id="toc-case-study-neotropical-bats" class="nav-link" data-scroll-target="#case-study-neotropical-bats"><span class="header-section-number">16.3.1</span> Case study: Neotropical bats</a></li>
+  <li><a href="#berger-parker-index" id="toc-berger-parker-index" class="nav-link" data-scroll-target="#berger-parker-index"><span class="header-section-number">16.3.2</span> Berger-Parker index</a></li>
+  </ul></li>
+  <li><a href="#what-are-you-investigating" id="toc-what-are-you-investigating" class="nav-link" data-scroll-target="#what-are-you-investigating"><span class="header-section-number">16.4</span> What are you investigating?</a></li>
+  <li><a href="#diversity-across-spatial-scales" id="toc-diversity-across-spatial-scales" class="nav-link" data-scroll-target="#diversity-across-spatial-scales"><span class="header-section-number">16.5</span> Diversity across spatial scales</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">16.6</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -479,33 +451,30 @@ H = -\sum {p_i}~ln~(p_i)
 <section id="calculating-confidence-intervals" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="calculating-confidence-intervals"><span class="header-section-number">16.3</span> Calculating confidence intervals</h2>
 <p>Non-parametric tests can’t use estimates from underlying distributions to create a confidence interval, so other approaches are to gain some sort of estimate of how sure we are of these values, and remove sampling bias. Calculating confidence intervals for Simpson’s and Shannon’s diversity indices are usually done by methods of repeat sampling, usually called jack-knifing or bootstrapping.</p>
-<p>By performing repeated samples of subsamples, we can estimate the standard error of the non-parametric index. In bootstrapping, this is done by subsampling the data <em>x</em> times and calculating the diversity index from the subsample (Figure 5.15). Jack-knifing is a similar process, but calculates the statistic <em>x</em> times, each time removing one individual observation from the set of values. In both cases, the set of diversity indices that are produced can be used to infer a distribution.</p>
-<div class="{@fig-bootstrap}">
+<p>By performing repeated samples of subsamples, we can estimate the standard error of the non-parametric index. In bootstrapping, this is done by subsampling the data <em>x</em> times and calculating the diversity index from the subsample (<a href="#fig-bootstrap-process" class="quarto-xref">Figure&nbsp;<span>16.3</span></a>). Jack-knifing is a similar process, but calculates the statistic <em>x</em> times, each time removing one individual observation from the set of values. In both cases, the set of diversity indices that are produced can be used to infer a distribution.</p>
+<div id="fig-bootstrap-process" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bootstrap-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="default">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>echo: false</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>flowchart LR;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A((Original Sample)) ==&gt; B(Bootstrap Subsample 2);</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>A((Original Sample)) ==&gt; C(Bootstrap Subsample 2);</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>A((Original Sample)) ==&gt; D(Bootstrap Subsample 3);</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B ==&gt; E[Bootstrap Statistic 1];</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>c ==&gt; F[Bootstrap Statistic 2];</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>D ==&gt; G[Bootstrap Statistic 3];</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>A ==&gt; H[Sample Statistic];</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>E &amp; F &amp; G ==&gt; I[Bootstrap distribution]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">echo: false
+<pre class="mermaid mermaid-js">---
+mermaid:
+  theme: neutral
+---
 flowchart LR;
-A((Original Sample)) ==&gt; B(Bootstrap Subsample 2);
-A((Original Sample)) ==&gt; C(Bootstrap Subsample 2);
-A((Original Sample)) ==&gt; D(Bootstrap Subsample 3);
-B ==&gt; E[Bootstrap Statistic 1];
-c ==&gt; F[Bootstrap Statistic 2];
-D ==&gt; G[Bootstrap Statistic 3];
-A ==&gt; H[Sample Statistic];
-E &amp; F &amp; G ==&gt; I[Bootstrap distribution]
+A(("Original Sample")) ==&gt; B("Bootstrap Subsample 1");
+A ==&gt; C("Bootstrap Subsample 2");
+A ==&gt; D("Bootstrap Subsample 3");
+B ==&gt; E("Bootstrap Statistic 1");
+C ==&gt; F("Bootstrap Statistic 2");
+D ==&gt; G("Bootstrap Statistic 3");
+E ==&gt; I["Bootstrap Distribution"];
+F ==&gt; I;
+G ==&gt; I;
+A ==&gt; J("Sample Statistic")
 
 </pre>
 </div>
@@ -514,6 +483,77 @@ E &amp; F &amp; G ==&gt; I[Bootstrap distribution]
 </div>
 </div>
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bootstrap-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.3: Bootstrapping is a process whereby subsamples of the original dataset are selected, and statistics calculated repeatedly to generate distribution of possible values for that statistic. This provides a picture of how variable the statistic might be, given the variation present in the original sample, and allows us to calculate confidence intervals and standard errors.
+</figcaption>
+</figure>
+</div>
+<section id="case-study-neotropical-bats" class="level3" data-number="16.3.1">
+<h3 data-number="16.3.1" class="anchored" data-anchor-id="case-study-neotropical-bats"><span class="header-section-number">16.3.1</span> Case study: Neotropical bats</h3>
+<p>Rex et al.&nbsp;(2008) used mist nets set overnight to capture bats in three regions:</p>
+<ol type="A">
+<li>Primary rainforest (190 - 270 m a.s.l.[above sea level]) in eastern Ecuador, 0°S;</li>
+<li>Protected forest in Costa Rica (30 - 100 m a.s.l.), 10°N;</li>
+<li>Old growth/successional forest next to pasture land (900 – 1200 m a.s.l.) in southern Ecuador, 4°S.</li>
+</ol>
+<p>At each region they had 10 one ha plots within a 1.5 km radius, covering all land-cover types. The rank abundance plots all show differences in species richness and evenness (<a href="#fig-neotropical-bats" class="quarto-xref">Figure&nbsp;<span>16.4</span></a>). Simpson’s (1/<em>D</em>) and Shannon’s (<em>H</em>) indices helped to interpret the rank abundance plots: with standard errors generated through bootstrapping, it was possible to say that diversity was significantly lower in the high altitude, old growth, successional forest (C) compared to both the northern, protected area (B) or the equatorial primary rainforest (A), but areas A and B were not significantly different from each other.</p>
+<p>The literature suggests that species richness in bats declines with latitude, and with increasing altitude. However, this pattern may also be associated with the levels of disturbance in different habitats, and we are interested in evenness of communities as well as species richness. The diversity index gives us these two things simultaneously, and it is possible for two communities with different rank abundance plots to end up with the same diversity index value, and for similarly shaped plots to have different diversity indices. So how might we separate out the species richness information from the evenness information in this one value?</p>
+<p>In a species abundance plot, evenness is represented by how flat the middle species are: i.e.&nbsp;the species that are all similar in abundance but increasing in rarity. If there are lots of relatively common species then there is a relatively even community, while lots of rare species and a few very common species produces a very uneven community.</p>
+<p>One way to quantify this is to determine what the maximum possible evenness could be with your calculated diversity, and look at the ratio of your diversity index that you actually get against that maximum possible. Once again we are comparing the observed (our calculated diversity) versus the expected (under specific conditions). Maximum evenness happens when all species have equal abundance: if you had 100 individuals with 10 species, there would be 10 individuals assigned to each species. The process of creating this ratio gives us a value of between 0 and 1, where 1 means that the species have matched that ideal evenness, and zero when they are a long way from that ideal evenness.</p>
+<div id="fig-neotropical-bats" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-neotropical-bats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/neotropical-bats-case-study.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;16.4: Rank abundance plots for bats found in three neotropical regions: (A) primary rainforest (190 - 270 m a.s.l.) in eastern Ecuador, 0°S; (B) protected forest in Costa Rica (30 - 100 m a.s.l.), 10°N; (C) old growth/successional forest next to pasture land (900 – 1200 m a.s.l.) in southern Ecuador, 4°S. Right column (top): Simpson’s (triangle) and Shannon’s (circle) indices, with standard errors generated through bootstrapping, indicate that sites A &amp; B are more diverse than site C, but are not significantly different from each other even though site A is more species rich than B. Right column (bottom): Evenness ratios for Shannon’s index (circles; EH) and Simpson’s index (triangles; E1/D) suggest that Simpson’s index is much more sensitive to evenness than the Shannon’s index, because the values calculated for Shannon’s index are higher (i.e.&nbsp;the observed communities are closer to maximum evenness compared to using Simpson’s index). Sites A and B are much more even than site C. This is reinforced by the patterns seen in the rank abundance plots (left)."><img src="data-image/neotropical-bats-case-study.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-neotropical-bats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.4: Rank abundance plots for bats found in three neotropical regions: (A) primary rainforest (190 - 270 m a.s.l.) in eastern Ecuador, 0°S; (B) protected forest in Costa Rica (30 - 100 m a.s.l.), 10°N; (C) old growth/successional forest next to pasture land (900 – 1200 m a.s.l.) in southern Ecuador, 4°S. Right column (top): Simpson’s (triangle) and Shannon’s (circle) indices, with standard errors generated through bootstrapping, indicate that sites A &amp; B are more diverse than site C, but are not significantly different from each other even though site A is more species rich than B. Right column (bottom): Evenness ratios for Shannon’s index (circles; EH) and Simpson’s index (triangles; E1/D) suggest that Simpson’s index is much more sensitive to evenness than the Shannon’s index, because the values calculated for Shannon’s index are higher (i.e.&nbsp;the observed communities are closer to maximum evenness compared to using Simpson’s index). Sites A and B are much more even than site C. This is reinforced by the patterns seen in the rank abundance plots (left).
+</figcaption>
+</figure>
+</div>
+<p>Rex et al.&nbsp;(2008) calculated the evenness ratios for Shannon’s and Simpson’s indices for their neotropical bats (<a href="#fig-neotropical-bats" class="quarto-xref">Figure&nbsp;<span>16.4</span></a>), and found that the bat assemblages at lower elevation (A and B), between 30 and 270 metres above sea level, have similar evenness, despite the changes in latitude. This implies that altitude may be the main drivers of differences in the bat communities between these regions, rather than latitude. This understanding of the evenness changes the interpretation of the data compared to when we considered diversity index data alone. Evenness, as a ratio of the possible maximum, is therefore a major factor to consider when describing communities.</p>
+</section>
+<section id="berger-parker-index" class="level3" data-number="16.3.2">
+<h3 data-number="16.3.2" class="anchored" data-anchor-id="berger-parker-index"><span class="header-section-number">16.3.2</span> Berger-Parker index</h3>
+<p>To reduce evenness to its most basic level, we can ask: what proportion of the individuals in a community are represented by the commonest species? This is known as a dominance index. In an even community this will be low, and in a dominated community it will be high – it will be 1 if the commonest species is the only species you have in your sample.</p>
+<p>The Berger-Parker index is calculated from the number of individuals in the sample (<em>N</em>), and the number of individuals in the most abundance species (<span class="math inline">\(N_{max}\)</span>):</p>
+<p><span class="math display">\[
+d = {N_{max} \over N}
+\]</span> As with the other non-parametric indices, you have to take the reiprocal in order to get the index working the ‘right’ way around: 1/<em>d</em> gives an increase with an increase in diversity (reduction in dominance)</p>
+</section>
+</section>
+<section id="what-are-you-investigating" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="what-are-you-investigating"><span class="header-section-number">16.4</span> What are you investigating?</h2>
+<p>When you are choosing measures of diversity, you should know in advance what aspect of biodiversity is being investigated, and why. There are some challenges that can come with converting rank abundance plots into a single diversity index value. However, in order to work out what is going on in your community you need to have a way to condense that information down. It is simply not feasible to look at hundreds of rank abundance plots.</p>
+<p>These are good starting places for your experimental design and analysis plans:</p>
+<ul>
+<li>If <strong>species richness</strong>: Shannon, rarefaction</li>
+<li>If <strong>heterogeneity</strong>: log series <span class="math inline">\(\alpha\)</span> or Simpson’s index</li>
+<li>If <strong>evenness</strong>: one of the evenness indices</li>
+<li>If <strong>dominance</strong>: Simpson, or Berger-Parker is simple and easily interpretable</li>
+</ul>
+</section>
+<section id="diversity-across-spatial-scales" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="diversity-across-spatial-scales"><span class="header-section-number">16.5</span> Diversity across spatial scales</h2>
+<p>Diversity of a single site, quadrat or area is called the point or alpha (<span class="math inline">\(\alpha\)</span>) diversity. However, species presence and relative abundance, or diversity, changes across spatial scales. We also need the concepts of gamma (<span class="math inline">\(\gamma\)</span>) diversity, diversity at the landscape or regional scale, and beta (<span class="math inline">\(\beta\)</span>) diversity, which tells us how smaller sites within that region differ from each other. There are different ways to calculate <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> diversity, but usually <span class="math inline">\(\gamma = \alpha + \beta\)</span>.</p>
+<p>We will work through a simple example to illustrate how this helps to quantify diversity at different scales. <a href="#fig-bird-communities" class="quarto-xref">Figure&nbsp;<span>16.5</span></a> shows four sites where five individuals from local bird communities have been counted. Using observed species richness as a simple index of diversity, we see that sites 1 and 3 (in region X) have five species, and sites 2 and 4 (in region Y) have 3 species. The alpha diversity is therefore almost twice as high for sites in region X (<span class="math inline">\(\alpha\)</span> = 5) compared to sites in region Y (<span class="math inline">\(\alpha\)</span> = 3).</p>
+<p>Beta diversity represents the difference in the composition or the turnover between multiple sites in the same region. It asks the question, how many species that are present in one site are also present in another site within the same region? In region X, the same five species are present at sites 1 and 3. Although the alpha diversity is high, there is no turnover between sites. In contrast, in region Y there are no shared species between sites 2 and 4.</p>
+<p>One of the ways to calculate the beta diversity is to take the number of species in a region, and divide that by the mean alpha diversity for the region. This gives an estimate of the turnover in a region. This would give us <span class="math inline">\(\beta = {5 \over 5} = 1\)</span> for region X, but <span class="math inline">\(\beta = {6 \over 3} = 2\)</span> for region Y is double that.</p>
+<p>The gamma diversity is a measure of the total landscape or regional richness, assessed across all sites within that landscape. It is a combination of the alpha diversity and the beta diversity. For our example, region X has a high alpha diversity (5) but a low turnover (1), which gives us a gamma diversity value of 6. Region Y has a lower alpha diversity (3) but a higher turnover (2), giving us a gamma diversity value of 5.</p>
+<p>Each of these scales tells us different things about the regions that we’ve been sampling, but as with the alpha diversity that we created from our condensed rank abundance plots, they help us to condense complex levels of information about a species composition into single points of information that we can then start to compare, whether that’s across sites, regions, or landscapes. We might conclude that region X is marginally more diverse at the landscape scale, or we might conduct bootstrapping and more intensive sampling and conclude that they are similarly diverse but with different spatial distributions. Our next experimental and observational steps will depend on the question that we are really interested in answering.</p>
+<div id="fig-bird-communities" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bird-communities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="data-image/bird-species-diversity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;16.5: "><img src="data-image/bird-species-diversity.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-bird-communities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.5
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="references" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="references"><span class="header-section-number">16.6</span> References</h2>
+<p>Rex K, Kelm DH, Wiesner K, Kunz TH, Voigt CC (2008), Species richness and structure of three Neotropical bat assemblages. Biological Journal of the Linnean Society, 94: 617-629.</p>
 
 
 </section>
