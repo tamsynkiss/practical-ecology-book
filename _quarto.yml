@@ -54,6 +54,7 @@ book:
       chapters:
         - experimental-design/experimental-design-introduction.qmd
         - experimental-design/key-aspects-experimental-design.qmd
+        - experimental-design/experimental-design-summary.qmd
     - part: practicals/practical-overview.qmd
       chapters: 
         - practicals/plantago-practical.qmd

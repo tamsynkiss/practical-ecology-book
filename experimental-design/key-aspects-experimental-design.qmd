@@ -238,8 +238,27 @@ In a split-unit design, we can cope with treatment factors with different experi
 
 ::: {#fig-split-unit}
 ![](data-image/split-unit.png){fig-alt = "Four greenhouses with ambient or enhanced CO2, showing smaller experimental units within each treatment. See caption for more details"}
+
 A split-unit experimental design with four greenhouses (two replicates each of enhanced and ambient CO~2~ treatments). Each greenhouse houses two control replicates next to a 25&deg;C and 30&deg;C soil temperature treatment replicates, managed in smaller growth chambers.
 :::
+
+Data from split-unit designs can be difficult to interpret when the factors interact, and independence of the sub-units is key: it is easy to fall into pseudoreplication. Should you ever need to do this type of design, it would be worth talking to a professional statistician about how to set it up and analyse the data.
+
+### Latin square
+
+Randomized block designs are used when one source of variation is recognized. The Latin square design extends this to two dimensions by blocking in two directions. The number of levels of each factor must be equal, else you must go factorial with your design. The Latin square design looks like a Sudoku puzzle: each of your treatments for the factor of interest appears once in each row and column of the blocking factors (@fig-latin-square).
+
+Essentially we are trying to approximate a factorial design without doing so much work. We can't measure interactions between factors this way, and there is a critical assumption that there are no interactions between any of the factors.
+
+::: {#fig-latin-square}
+![](data-image/latin-square.png){fig-alt = "3 by 3 grid showing how three species can be observed in three locations and three seasons. The caption describes how these are arranged."}
+
+A Latin square design for an experiment comparing aphid population growth of three species in three seasons, in three locations. In season 1, we look at species A in location 1, species B in location 2 and species C in location 3. In season 2, we look at B1, C2, A3. In season 3 we look at C1, A2, B3. We are interested in the effect of species (A-C) on response (growth rate) for the two blocking factors (season and location), and because we have three species, we are constrained to a 3x3 Latin square.
+:::
+
+### Repeated measures
+
+Ecological experiments often take place over a long time, but repeat measurements on the same experimental units are not independent. You can do analyses that take time trends into account (many stats packages are available to help you), or you can look at each time period in turn (assuming the spatial data are independent) and compare them that way. 
 
 
 ## References
